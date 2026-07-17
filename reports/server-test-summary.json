@@ -1,15 +1,26 @@
 {
-  "generatedAt": "2026-07-17T17:04:16.948928Z",
+  "generatedAt": "2026-07-17T17:45:01.315051Z",
+  "commit": "babd1148b38e4b1474d9bfc0af7eb3178585ea3b",
   "environment": {
-    "platform": "Linux-4.4.0-x86_64-with-glibc2.41",
-    "python": "3.13.5"
+    "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+    "python": "3.12.13"
   },
-  "tests": 68,
-  "passed": 68,
+  "tests": 75,
+  "passed": 75,
   "failures": 0,
   "errors": 0,
   "skipped": 0,
-  "coverageLineRate": 0.8318,
-  "coveragePercent": 83.18,
+  "coverageLineRate": 0.8352,
+  "coveragePercent": 83.52,
+  "processSmoke": {
+    "checks": 3,
+    "passed": 3,
+    "result": "PASS"
+  },
+  "contractRegression": {
+    "tests": 56,
+    "passed": 56,
+    "result": "PASS"
+  },
   "result": "PASS"
 }
