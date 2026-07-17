@@ -4,9 +4,10 @@ import logging
 from typing import Any
 
 from fastapi import FastAPI, Request
-from fastapi.exceptions import RequestValidationError
 from fastapi.encoders import jsonable_encoder
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 logger = logging.getLogger(__name__)
 
@@ -61,10 +62,30 @@ def install_exception_handlers(app: FastAPI) -> None:
     async def domain_error_handler(request: Request, exc: DomainError) -> JSONResponse:
         return _error_response(request, exc)
 
+    @app.exception_handler(StarletteHTTPException)
+    async def http_error_handler(request: Request, exc: StarletteHTTPException) -> JSONResponse:
+        if exc.status_code == 404:
+            error = DomainError(404, 404001, "NOT_FOUND", "请求的资源不存在")
+        elif exc.status_code == 405:
+            error = DomainError(405, 405001, "METHOD_NOT_ALLOWED", "请求方法不受支持")
+        else:
+            message = str(exc.detail) if exc.detail else "HTTP 请求失败"
+            error = DomainError(
+                exc.status_code,
+                400000 + exc.status_code,
+                "HTTP_ERROR",
+                message,
+            )
+        return _error_response(request, error)
+
     @app.exception_handler(RequestValidationError)
     async def validation_error_handler(
         request: Request, exc: RequestValidationError
     ) -> JSONResponse:
+        details = [
+            {key: value for key, value in item.items() if key != "ctx"}
+            for item in exc.errors()
+        ]
         return _error_response(
             request,
             DomainError(
@@ -72,14 +93,7 @@ def install_exception_handlers(app: FastAPI) -> None:
                 400001,
                 "INVALID_ARGUMENT",
                 "请求参数校验失败",
-                {
-                    "details": jsonable_encoder(
-                        [
-                            {key: value for key, value in item.items() if key != "ctx"}
-                            for item in exc.errors()
-                        ]
-                    )
-                },
+                {"details": jsonable_encoder(details)},
             ),
         )
 
