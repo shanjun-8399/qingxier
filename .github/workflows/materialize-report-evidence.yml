@@ -1,0 +1,71 @@
+name: Materialize report evidence
+
+on:
+  push:
+    branches:
+      - agent/qingxier-v1-1-solution-tests
+    paths:
+      - '.report_sources/**'
+      - '.github/workflows/materialize-report-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/qingxier-v1-1-solution-tests
+
+      - name: Materialize reports and raw evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          decode() {
+            base64 -d "$1" | gzip -dc > "$2"
+          }
+          decode '.report_sources/comprehensive.md.gz.b64' 'reports/庆喜儿项目综合测试报告_V1.1.md'
+          decode '.report_sources/test-results.json.gz.b64' 'reports/test-results.json'
+          decode '.report_sources/junit.xml.gz.b64' 'reports/junit.xml'
+          decode '.report_sources/test-run-console.txt.gz.b64' 'reports/test-run-console.txt'
+
+      - name: Verify materialized evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          result = json.loads(Path('reports/test-results.json').read_text(encoding='utf-8'))
+          assert result['total'] == 56
+          assert result['passed'] == 56
+          assert result['failed'] == 0
+          assert result['errors'] == 0
+          suite = ET.parse('reports/junit.xml').getroot()
+          assert int(suite.attrib['tests']) == 56
+          assert int(suite.attrib['failures']) == 0
+          assert int(suite.attrib['errors']) == 0
+          report = Path('reports/庆喜儿项目综合测试报告_V1.1.md').read_text(encoding='utf-8')
+          assert '56/56 PASS' in report
+          assert 'BLOCKED' in report
+          PY
+
+      - name: Commit materialized files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/庆喜儿项目综合测试报告_V1.1.md reports/test-results.json reports/junit.xml reports/test-run-console.txt
+          if git diff --cached --quiet; then
+            echo 'Materialized report evidence is already current.'
+          else
+            git commit -m 'Materialize comprehensive test report and evidence'
+            git push
+          fi
