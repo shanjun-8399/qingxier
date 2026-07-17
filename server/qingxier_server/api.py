@@ -1,10 +1,8 @@
 from __future__ import annotations
 
-import logging
 import re
 import uuid
 from contextlib import asynccontextmanager
-from typing import Any
 
 from fastapi import Depends, FastAPI, Header, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +17,7 @@ from .domain import (
     WakeWordPackageCreate,
 )
 from .errors import DomainError, install_exception_handlers, ok
+from .hardened_service import HardenedSpeechService
 from .integrations import (
     EventPublisher,
     LlmProvider,
@@ -32,7 +31,6 @@ from .security import Principal, require_admin, require_device, require_user
 from .services import SpeechService
 from .websocket_api import register_voice_websocket
 
-logger = logging.getLogger(__name__)
 _TRACE_RE = re.compile(r"^[A-Za-z0-9_.:-]{1,128}$")
 
 
@@ -54,7 +52,9 @@ def create_app(
     publisher = publisher or build_event_publisher(settings)
     tts_provider = tts_provider or build_tts_provider(settings)
     llm_provider = llm_provider or build_llm_provider(settings)
-    service = SpeechService(settings, repository, publisher, tts_provider, llm_provider)
+    service = HardenedSpeechService(
+        settings, repository, publisher, tts_provider, llm_provider
+    )
 
     @asynccontextmanager
     async def lifespan(_: FastAPI):
@@ -66,7 +66,7 @@ def create_app(
 
     app = FastAPI(
         title="庆喜儿语音服务",
-        description="V1.1 自动方言、克隆音色 TTS 与“阿西”唤醒词服务",
+        description="V1.1 自动方言、克隆音色 TTS 与‘阿西’唤醒词服务",
         version=settings.app_version,
         lifespan=lifespan,
     )
@@ -95,7 +95,9 @@ def create_app(
     async def trace_middleware(request: Request, call_next):
         requested = request.headers.get("X-Request-Id", "")
         request.state.trace_id = (
-            requested if _TRACE_RE.fullmatch(requested) else f"trc_{uuid.uuid4().hex[:20]}"
+            requested
+            if _TRACE_RE.fullmatch(requested)
+            else f"trc_{uuid.uuid4().hex[:20]}"
         )
         response = await call_next(request)
         response.headers["X-Trace-Id"] = request.state.trace_id
