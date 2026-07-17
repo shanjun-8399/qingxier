@@ -1,41 +1,30 @@
 services:
-  api:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+  emqx:
+    image: emqx/emqx:5
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "18083:18083"
+  server:
     build: .
+    restart: unless-stopped
     env_file: .env
+    environment:
+      PORT: 8000
+      STORAGE_BACKEND: mongo
+      MONGO_URI: mongodb://mongo:27017/qingxier
+      EVENT_BACKEND: mqtt
+      MQTT_URL: mqtt://emqx:1883
     ports:
       - "8000:8000"
     depends_on:
-      mongo:
-        condition: service_healthy
-      emqx:
-        condition: service_started
-    restart: unless-stopped
-
-  mongo:
-    image: mongo:7
-    volumes:
-      - mongo-data:/data/db
-    healthcheck:
-      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-    restart: unless-stopped
-
-  emqx:
-    image: emqx/emqx:5.8
-    environment:
-      EMQX_DASHBOARD__DEFAULT_USERNAME: admin
-      EMQX_DASHBOARD__DEFAULT_PASSWORD: change-me-before-production
-    ports:
-      - "1883:1883"
-      - "18083:18083"
-    volumes:
-      - emqx-data:/opt/emqx/data
-      - emqx-log:/opt/emqx/log
-    restart: unless-stopped
-
+      - mongo
+      - emqx
 volumes:
   mongo-data:
-  emqx-data:
-  emqx-log:
