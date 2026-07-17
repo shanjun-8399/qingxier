@@ -1,0 +1,23 @@
+....................................................................     [100%]
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.5-final-0 ________________
+
+Name                                      Stmts   Miss  Cover   Missing
+-----------------------------------------------------------------------
+server/qingxier_server/__init__.py            2      0   100%
+server/qingxier_server/api.py                92      1    99%   123
+server/qingxier_server/asr.py                84      4    95%   122, 142, 150, 169
+server/qingxier_server/config.py             89      5    94%   10, 15-18
+server/qingxier_server/domain.py             85      1    99%   85
+server/qingxier_server/errors.py             35      2    94%   88-89
+server/qingxier_server/integrations.py      123     29    76%   37-52, 55-62, 65-66, 102-105, 172-173, 229-230, 241, 247, 253
+server/qingxier_server/main.py                6      6     0%   1-11
+server/qingxier_server/repository.py        197     74    62%   110, 146, 176, 202-223, 227-231, 234-235, 238, 241, 247, 252-264, 273, 276-280, 283, 286-295, 298, 303, 317, 320-328, 331-334, 338-340
+server/qingxier_server/security.py          103     17    83%   36-37, 39, 47-48, 50, 52, 55-56, 71, 76, 79, 92, 109, 120, 130, 143
+server/qingxier_server/services.py          176     21    88%   92, 95, 118, 151, 160, 212, 215, 218, 268, 272, 275, 287, 314, 395, 456-457, 472-498
+server/qingxier_server/websocket_api.py     114     26    77%   45, 66-76, 101-106, 124, 128-136, 143, 145, 153, 181, 226-229, 253-254, 264
+-----------------------------------------------------------------------
+TOTAL                                      1106    186    83%
+Coverage XML written to file reports/server-coverage.xml
+Required test coverage of 80% reached. Total coverage: 83.18%
+68 passed in 2.19s

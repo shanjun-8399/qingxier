@@ -5,36 +5,73 @@
 1. 支持闽南语、吴语、粤语、四川话、陕西话、河南话、上海话等多种方言识别与合成。用户无需手动切换，设备自动检测语种，实现“用家乡话跟庆喜儿聊天”的体验。合成音色使用克隆声音，确保方言输出音色统一、自然。
 2. 唤醒词由“庆喜儿”改为“阿西”。
 
-## V1.1 方案与测试交付
+## 服务器实现
 
-本分支已新增：
+`server/` 已提供本次新需求对应的可运行 FastAPI 服务，不再只是参考契约：
 
-- 多方言自动识别、会话滞回、克隆音色 TTS 路由及降级策略；
-- ESP32-S3 / WakeNet9 “阿西”唤醒词、误唤醒控制、OTA 与回滚方案；
-- REST、WebSocket、MQTT 及小程序状态流的接口变更说明；
-- 服务器功能/接口、小程序功能/接口参考自动化测试；
-- 四份专项测试报告与一份综合测试报告。
+- REST、WebSocket、Trace ID 和统一错误响应；
+- 用户、设备、管理员鉴权及生产 HS256 JWT；
+- 设备语音配置和乐观锁；
+- “阿西”语音会话及 WakeNet9 模型状态；
+- 八类方言路由、置信度阈值、会话滞回与自动兜底；
+- CosyVoice 克隆音色主路由、泛吴语显式降级和 Qwen 系统音色兜底；
+- DashScope Fun-ASR-Realtime、TTS、OpenAI 兼容 LLM、MongoDB 与 MQTT 适配器；
+- 唤醒词模型包校验、幂等发布、重复版本保护和审计；
+- Docker、Compose、Swagger/OpenAPI、CI 和完整测试证据。
 
-## 自动化执行结果
+范围说明：本次实现聚焦 V1.1 多方言、克隆音色和“阿西”唤醒词涉及的服务器能力。微信支付、商城、订单及运营后台页面等既有业务域不在本轮新增需求代码范围内。
 
-```text
-总数 56 / PASS 56 / FAIL 0 / ERROR 0 / SKIP 0
-```
+## 自动化结果
 
-执行命令：
+| 测试集 | 结果 |
+|---|---:|
+| 原 V1.1 契约与小程序状态流测试 | 56/56 PASS |
+| 服务器实现单元、接口、WebSocket 与适配器测试 | 68/68 PASS |
+| 服务器代码行覆盖率 | 83.18% |
+| Uvicorn 真实进程 HTTP 冒烟 | 3/3 PASS |
+| 合计自动化用例 | 124/124 PASS |
+
+服务器测试命令：
 
 ```bash
-python -m tests.run_tests
+cd server
+pip install -r requirements-dev.txt
+pytest -q \
+  --junitxml=../reports/server-junit.xml \
+  --cov=qingxier_server \
+  --cov-report=term-missing \
+  --cov-report=xml:../reports/server-coverage.xml \
+  --cov-fail-under=80
 ```
 
-> 重要说明：原仓库未提供真实服务器源码、小程序源码、设备固件、可访问测试环境、第三方凭据和测试设备。本次 56 项通过结果验证的是 V1.1 参考契约、服务端路由规则和小程序状态流；真实云端、微信真机、ESP32 设备、BLE、MQTT/WSS、OTA、方言音频质量及 72 小时长稳验收均标记为 `BLOCKED`，不能据此认定生产验收通过。
+本地启动：
 
-## 文档与报告
+```bash
+cd server
+APP_ENV=test uvicorn qingxier_server.main:app --host 0.0.0.0 --port 8000
+```
+
+详见：
+
+- `server/README.md`
+- `reports/服务器代码实施测试报告_V1.2.md`
+- `reports/server-test-summary.json`
+- `reports/server-junit.xml`
+- CI Artifact 中每次重新生成的 `server-coverage.xml`
+- `reports/server-test-console.txt`
+- `reports/server-smoke-console.txt`
+
+## 方案与接口文档
 
 - `docs/庆喜儿AI玩具_技术方案设计_V1.1.md`
 - `docs/庆喜儿AI玩具_接口变更说明_V1.1.md`
+
+## 既有专项报告
+
 - `reports/服务器功能测试报告_V1.1.md`
 - `reports/服务器接口测试报告_V1.1.md`
 - `reports/小程序功能测试报告_V1.1.md`
 - `reports/小程序接口测试报告_V1.1.md`
 - `reports/庆喜儿项目综合测试报告_V1.1.md`
+
+> 当前代码测试结论为 PASS。真实 DashScope 音频质量、克隆相似度、MongoDB 副本集、EMQX TLS/ACL、生产 WSS 并发、72 小时稳定性、设备真机和安全渗透仍需正式账号、语料、设备及部署环境，不能用 Mock/协议测试替代生产验收。
