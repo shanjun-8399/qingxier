@@ -6,9 +6,11 @@ on:
       - agent/qingxier-v1-1-solution-tests
   pull_request:
     paths:
+      - 'README.md'
       - 'tests/**'
       - 'docs/庆喜儿AI玩具_技术方案设计_V1.1.md'
       - 'docs/庆喜儿AI玩具_接口变更说明_V1.1.md'
+      - 'reports/**'
       - '.github/workflows/contract-tests.yml'
   workflow_dispatch:
 
