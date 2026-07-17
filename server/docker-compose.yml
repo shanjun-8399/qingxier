@@ -1,0 +1,30 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+  emqx:
+    image: emqx/emqx:5
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "18083:18083"
+  server:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: 8000
+      STORAGE_BACKEND: mongo
+      MONGO_URI: mongodb://mongo:27017/qingxier
+      EVENT_BACKEND: mqtt
+      MQTT_URL: mqtt://emqx:1883
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+      - emqx
+volumes:
+  mongo-data:

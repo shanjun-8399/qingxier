@@ -1,0 +1,37 @@
+name: Contract tests
+
+on:
+  push:
+    branches:
+      - agent/qingxier-v1-1-solution-tests
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'tests/**'
+      - 'docs/庆喜儿AI玩具_技术方案设计_V1.1.md'
+      - 'docs/庆喜儿AI玩具_接口变更说明_V1.1.md'
+      - 'reports/**'
+      - '.github/workflows/contract-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run reference contract tests
+        run: python -m tests.run_tests
+      - name: Upload test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qingxier-contract-test-results
+          path: |
+            reports/test-results.json
+            reports/junit.xml
