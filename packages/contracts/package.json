@@ -1,0 +1,9 @@
+{
+  "name": "@qingxier/contracts",
+  "version": "2.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {"clean":"rm -rf dist","build":"tsc -p tsconfig.json","typecheck":"tsc --noEmit -p tsconfig.json"},
+  "devDependencies": {"typescript":"5.8.3"}
+}

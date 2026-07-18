@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "订阅",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "qingxier-platform",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/contracts",
+    "server",
+    "miniprogram",
+    "admin"
+  ],
+  "scripts": {
+    "clean": "npm run clean --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspace @qingxier/contracts && npm run typecheck --workspace @qingxier/server && npm run typecheck --workspace @qingxier/miniprogram && npm run typecheck --workspace @qingxier/admin",
+    "test": "npm run test:ci --workspace @qingxier/server && npm run test:ci --workspace @qingxier/miniprogram && npm run test:ci --workspace @qingxier/admin",
+    "build": "npm run build --workspace @qingxier/contracts && npm run build --workspace @qingxier/server && npm run build:mp-weixin --workspace @qingxier/miniprogram && npm run build --workspace @qingxier/admin",
+    "verify:server": "npm run typecheck --workspace @qingxier/server && npm run test:ci --workspace @qingxier/server && npm run build --workspace @qingxier/server",
+    "verify:miniprogram": "npm run typecheck --workspace @qingxier/miniprogram && npm run test:ci --workspace @qingxier/miniprogram && npm run build:mp-weixin --workspace @qingxier/miniprogram",
+    "verify:admin": "npm run typecheck --workspace @qingxier/admin && npm run test:ci --workspace @qingxier/admin && npm run build --workspace @qingxier/admin",
+    "smoke:server": "node scripts/server-smoke.mjs",
+    "reports": "python3 scripts/generate-reports.py && python3 scripts/write-delivery-docs.py"
+  }
+}

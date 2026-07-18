@@ -1,0 +1,2 @@
+import {CallHandler,ExecutionContext,Injectable,NestInterceptor} from '@nestjs/common';import type{Observable}from'rxjs';import{map}from'rxjs/operators';
+@Injectable()export class ResponseInterceptor implements NestInterceptor{intercept(c:ExecutionContext,n:CallHandler):Observable<unknown>{if(c.getType()!=='http')return n.handle();const r=c.switchToHttp().getRequest<{traceId?:string}>();return n.handle().pipe(map(data=>({code:0,message:'OK',data:data??null,traceId:r.traceId??'trc_unknown'})))}}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "声音克隆",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

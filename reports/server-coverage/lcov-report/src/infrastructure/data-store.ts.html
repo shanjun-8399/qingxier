@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/infrastructure/data-store.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/infrastructure</a> data-store.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">74.02% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>57/77</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">58.82% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>10/17</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">58.33% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>14/24</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>5/5</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">181x</span>
+<span class="cline-any cline-yes">502x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import{Injectable,OnApplicationShutdown,OnModuleInit}from'@nestjs/common';import{MongoClient,type Db}from'mongodb';import{AppConfig}from'@/config/app-config';import type{CollectionName,Entity}from'@/domain/types';import{conflict,notFound}from'@/common/errors';
+export interface DataStore{ping():Promise&lt;boolean&gt;;get&lt;T extends Entity&gt;(c:CollectionName,id:string):Promise&lt;T|null&gt;;find&lt;T extends Entity&gt;(c:CollectionName,f?:Record&lt;string,unknown&gt;):Promise&lt;T[]&gt;;insert&lt;T extends Entity&gt;(c:CollectionName,v:T):Promise&lt;T&gt;;patch&lt;T extends Entity&gt;(c:CollectionName,id:string,p:Partial&lt;T&gt;):Promise&lt;T&gt;;remove(c:CollectionName,id:string):Promise&lt;boolean&gt;}
+export const DATA_STORE=Symbol('DATA_STORE');const match=(v:Record&lt;string,any&gt;,f:Record&lt;string,unknown&gt;)=&gt;Object.entries(f).every(([k,e])=&gt;Array.isArray(e)?<span class="branch-0 cbranch-no" title="branch not covered" >e.includes(v[k]):</span>v[k]===e);
+@Injectable()export class MemoryDataStore implements DataStore{private m=new Map&lt;CollectionName,Map&lt;string,Entity&gt;&gt;();constructor(){this.seed()}async ping(){return true}async get&lt;T extends Entity&gt;(c:CollectionName,id:string){return(this.b(c).get(id)as T|undefined)??null}async find&lt;T extends Entity&gt;(c:CollectionName,f:Record&lt;string,unknown&gt;={}){return[...this.b(c).values()].filter(x=&gt;match(x,f))as T[]}async insert&lt;T extends Entity&gt;(c:CollectionName,v:T){<span class="missing-if-branch" title="if path not taken" >I</span>if(this.b(c).has(v.id))<span class="cstat-no" title="statement not covered" >throw conflict('资源已存在');t</span>his.b(c).set(v.id,structuredClone(v));return structuredClone(v)}async patch&lt;T extends Entity&gt;(c:CollectionName,id:string,p:Partial&lt;T&gt;){const o=this.b(c).get(id);<span class="missing-if-branch" title="if path not taken" >I</span>if(!o)<span class="cstat-no" title="statement not covered" >throw notFound();c</span>onst n={...o,...structuredClone(p),id,updatedAt:new Date().toISOString()}as T;this.b(c).set(id,n);return structuredClone(n)}async remove(c:CollectionName,id:string){return this.b(c).delete(id)}private b(c:CollectionName){let x=this.m.get(c);if(!x){x=new Map();this.m.set(c,x)}return x}private put(c:CollectionName,x:Entity){this.b(c).set(x.id,x)}private seed(){const t=new Date().toISOString(),b={createdAt:t,updatedAt:t};this.put('users',{...b,id:'u_1',openId:'openid_1',nickname:'小庆',defaultMode:'adult',defaultPersona:'mom',subscriptionLevel:'premium',status:'active',consentFlags:{memory:true,voiceClone:true}});this.put('users',{...b,id:'u_2',openId:'openid_2',nickname:'小喜',defaultMode:'adult',defaultPersona:'bestie',subscriptionLevel:'basic',status:'active',consentFlags:{memory:true}});for(const [d,sn,u,n,p]of[['d_001','SN001','u_1','庆喜儿一号','mom'],['d_002','SN002','u_2','庆喜儿二号','bestie']]as const){this.put('devices',{...b,id:d,deviceId:d,sn,name:n,model:'QXR-S3',hardwareRev:'1.0',firmwareVersion:'1.1.0',wakeModelVersion:'wakenet9-axi-1.0.0',status:'active'});this.put('bindings',{...b,id:`bind_${d}`,userId:u,deviceId:d,role:'owner',bindStatus:'active',mode:'adult',persona:p});this.put('deviceStatuses',{...b,id:d,deviceId:d,online:true,batteryPercent:d==='d_001'?86:73,charging:false,wifiRssi:-55,temperature:36.8,currentMode:'adult',currentPersona:p,firmwareVersion:'1.1.0',lastSeenAt:t});this.put('speechProfiles',{...b,id:d,deviceId:d,autoDialect:true,fallbackDialect:'mandarin',highConfidenceThreshold:.75,mediumConfidenceThreshold:.55,cloneVoiceId:d==='d_001'?'voice_clone_1':null,cloneModel:'cosyvoice-v3.5-flash',systemModel:'qwen3-tts-flash-realtime',version:1});this.put('parentControls',{...b,id:d,deviceId:d,allowedTimeRanges:[{start:'07:00',end:'21:00'}],contentSwitches:{english_songs:true,bedtime_stories:true},maxVolume:70,dialogRecordEnabled:true,heatingEnabled:true})}for(const [id,type,cat,title,text]of[['content_song_1','song','中文经典','小星星',null],['content_story_1','story','睡前故事','三只小猪',null],['content_qa_1','qa','数学启蒙','1+1等于几','1+1等于2。']]as const)this.put('contentItems',{...b,id,type,category:cat,title,text,audioUrl:`https://cdn.example.com/${id}.mp3`,duration:120,enabled:true,auditStatus:'approved'});for(const p of[{id:'mom',name:'妈妈',defaultVoiceId:'voice_mom'},{id:'dad',name:'爸爸',defaultVoiceId:'voice_dad'},{id:'lover',name:'恋人',defaultVoiceId:'voice_lover'},{id:'teacher',name:'老师',defaultVoiceId:'voice_teacher'},{id:'bestie',name:'闺蜜',defaultVoiceId:'voice_bestie'}])this.put('personas',{...b,...p,enabled:true});for(const p of[{id:'free',name:'免费版',monthlyPrice:0,yearlyPrice:0,limits:{customQas:0,reminders:5,customContents:0,voiceClones:1}},{id:'basic',name:'基础订阅',monthlyPrice:9.9,yearlyPrice:99,limits:{customQas:50,reminders:20,customContents:10,voiceClones:1}},{id:'premium',name:'高级订阅',monthlyPrice:19.9,yearlyPrice:199,limits:{customQas:200,reminders:100,customContents:50,voiceClones:2}}])this.put('subscriptions',{...b,...p});for(const x of[{id:'task_talk',title:'与阿西对话5分钟',reward:10,type:'daily'},{id:'task_message',title:'给亲友发送留言',reward:15,type:'pair'}])this.put('tasks',{...b,...x,enabled:true});for(const x of[{id:'prod_doll',name:'庆喜儿AI玩具',price:699,stock:100,type:'device'},{id:'prod_skin',name:'限定虚拟皮肤',price:50,stock:999,type:'reward'}])this.put('products',{...b,...x,enabled:true})}}
+@Injectable()export class MongoDataStore implements DataStore,OnModuleInit,OnApplicationShutdown{private c?:MongoClient;private db?:Db;<span class="fstat-no" title="function not covered" >constructor(private <span class="cstat-no" title="statement not covered" >c</span>fg:A</span>ppConfig){}<span class="fstat-no" title="function not covered" >async </span>onModuleInit(){<span class="cstat-no" title="statement not covered" >this.c=new MongoClient(this.cfg.mongoUri);<span class="cstat-no" title="statement not covered" >a</span>wait this.c.connect();<span class="cstat-no" title="statement not covered" >t</span>his.db=this.c.db()}<span class="fstat-no" title="function not covered" >a</span>sync </span>onApplicationShutdown(){<span class="cstat-no" title="statement not covered" >await this.c?.close()}p</span>rivate <span class="fstat-no" title="function not covered" >col(</span>n:CollectionName){<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if(!this.db)<span class="cstat-no" title="statement not covered" >throw new Error('MONGO_NOT_READY');<span class="cstat-no" title="statement not covered" >r</span></span>eturn this.db.collection(n)}<span class="fstat-no" title="function not covered" >a</span>sync </span>ping(){<span class="cstat-no" title="statement not covered" >return Boolean((await this.db!.command({ping:1})).ok)}<span class="fstat-no" title="function not covered" >a</span>sync </span>get&lt;T extends Entity&gt;(n:CollectionName,id:string){<span class="cstat-no" title="statement not covered" >return await this.col(n).findOne({id})as T|null}<span class="fstat-no" title="function not covered" >a</span>sync </span>find&lt;T extends Entity&gt;(n:CollectionName,f:Record&lt;string,unknown&gt;=<span class="branch-0 cbranch-no" title="branch not covered" >{})</span>{<span class="cstat-no" title="statement not covered" >return await this.col(n).find(f).toArray() as unknown as T[]}<span class="fstat-no" title="function not covered" >a</span>sync </span>insert&lt;T extends Entity&gt;(n:CollectionName,v:T){<span class="cstat-no" title="statement not covered" >await this.col(n).insertOne(v as any);<span class="cstat-no" title="statement not covered" >r</span>eturn v}<span class="fstat-no" title="function not covered" >a</span>sync </span>patch&lt;T extends Entity&gt;(n:CollectionName,id:string,p:Partial&lt;T&gt;){const x=<span class="cstat-no" title="statement not covered" >await this.col(n).findOneAndUpdate({id},{$set:{...p,updatedAt:new Date().toISOString()}},{returnDocument:'after'});<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span></span>if(!x)<span class="cstat-no" title="statement not covered" >throw notFound();<span class="cstat-no" title="statement not covered" >r</span></span>eturn x as unknown as T}<span class="fstat-no" title="function not covered" >a</span>sync </span>remove(n:CollectionName,id:string){<span class="cstat-no" title="statement not covered" >return(await this.col(n).deleteOne({id})).deletedCount===1}}</span>
+export const dataStoreProvider={provide:DATA_STORE,inject:[AppConfig],useFactory:(c:AppConfig):DataStore=&gt;c.storageBackend==='mongo'?<span class="branch-0 cbranch-no" title="branch not covered" >new MongoDataStore(c):</span>new MemoryDataStore()};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

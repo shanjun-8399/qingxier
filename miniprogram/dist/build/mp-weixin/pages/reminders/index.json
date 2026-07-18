@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提醒",
+  "usingComponents": {
+    "app-card": "../../components/AppCard",
+    "empty-state": "../../components/EmptyState"
+  }
+}

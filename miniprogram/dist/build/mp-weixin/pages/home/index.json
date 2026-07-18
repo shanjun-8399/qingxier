@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "设备控制台",
+  "usingComponents": {
+    "app-card": "../../components/AppCard",
+    "status-badge": "../../components/StatusBadge"
+  }
+}

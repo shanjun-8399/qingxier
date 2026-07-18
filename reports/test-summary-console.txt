@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-07-17T20:10:14.363115+00:00",
+  "version": "2.0.0",
+  "runtime": "Node.js >=20",
+  "totals": {
+    "tests": 102,
+    "passed": 102,
+    "failed": 0,
+    "skipped": 0
+  },
+  "builds": {
+    "server": "PASS",
+    "miniprogramMpWeixin": "PASS",
+    "admin": "PASS"
+  },
+  "processSmoke": {
+    "result": "PASS",
+    "checks": 7,
+    "health": "ok",
+    "accessToken": "user-token",
+    "devices": 1,
+    "routedDialect": "cantonese",
+    "ttsModel": "cosyvoice-v3.5-flash",
+    "adminUsers": 2,
+    "websocketFrames": [
+      "connected",
+      "started",
+      "dialect_result",
+      "tts_start",
+      "completed"
+    ]
+  },
+  "productionDependencyAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "result": "PASS"
+}

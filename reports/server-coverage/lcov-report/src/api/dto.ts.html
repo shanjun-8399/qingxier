@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/api/dto.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/api</a> dto.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>177/177</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>9/9</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import{IsArray,IsBoolean,IsIn,IsInt,IsNumber,IsObject,IsOptional,IsString,IsUrl,Length,Matches,Max,MaxLength,Min,MinLength}from'class-validator';import{DIALECTS,type DialectCode,type Mode,type Persona}from'@qingxier/contracts';
+export class WechatLoginDto{@IsString()@MinLength(1)code!:string;@IsOptional()@IsString()deviceBindTicket?:string}export class RefreshDto{@IsString()@MinLength(8)refreshToken!:string}export class PhoneBindDto{@IsString()@Matches(/^1\d{10}$/)phone!:string;@IsString()@Length(4,8)smsCode!:string}export class UpdateUserDto{@IsOptional()@IsString()@MaxLength(40)nickname?:string;@IsOptional()@IsUrl()avatarUrl?:string;@IsOptional()@Matches(/^\d{4}-\d{2}-\d{2}$/)birthDate?:string;@IsOptional()@IsIn(['child','adult'])defaultMode?:Mode;@IsOptional()@IsIn(['mom','dad','lover','teacher','bestie'])defaultPersona?:Persona;@IsOptional()@IsObject()consentFlags?:Record&lt;string,boolean&gt;}export class AddressDto{@IsString()recipient!:string;@IsString()@Matches(/^1\d{10}$/)phone!:string;@IsString()@MaxLength(120)address!:string;@IsOptional()@IsBoolean()isDefault?:boolean}
+export class BindTicketDto{@IsString()deviceSn!:string;@IsString()model!:string;@IsString()@MinLength(8)blePublicKey!:string}export class BindDeviceDto{@IsString()ticket!:string;@IsString()deviceId!:string;@IsString()@MinLength(8)bindProof!:string}export class UpdateDeviceDto{@IsOptional()@IsString()name?:string;@IsOptional()@IsIn(['child','adult'])defaultMode?:Mode;@IsOptional()@IsIn(['mom','dad','lover','teacher','bestie'])defaultPersona?:Persona}export class DeviceCommandDto{@IsIn(['heat','vibrate','heartbeat','servo_breath','expression','led','volume','sleep_mode'])commandType!:string;@IsObject()payload!:Record&lt;string,unknown&gt;;@IsOptional()@IsInt()@Min(1)@Max(300)expireInSeconds?:number;@IsOptional()@IsBoolean()needAck?:boolean}
+export class SpeechProfileUpdateDto{@IsBoolean()autoDialect!:true;@IsIn(DIALECTS)fallbackDialect!:DialectCode;@IsNumber()@Min(.5)@Max(.99)highConfidenceThreshold!:number;@IsNumber()@Min(.3)@Max(.95)mediumConfidenceThreshold!:number;@IsOptional()@IsString()cloneVoiceId?:string|null;@IsInt()@Min(1)version!:number}export class SpeechSessionDto{@IsString()deviceId!:string;@IsIn(['child','adult'])mode!:Mode;@IsIn(['mom','dad','lover','teacher','bestie'])persona!:Persona;@IsString()wakeModelVersion!:string;@IsIn(['阿西'])wakeWord!:'阿西'}export class DialectRouteDto{@IsString()sessionId!:string;@IsIn(DIALECTS)dialectCandidate!:DialectCode;@IsNumber()@Min(0)@Max(1)confidence!:number;@IsOptional()@IsIn(DIALECTS)previousDialect?:DialectCode}export class TtsDto{@IsString()sessionId!:string;@IsString()@MaxLength(1000)text!:string;@IsIn(DIALECTS)dialect!:DialectCode;@IsOptional()@IsString()voiceId?:string|null;@IsOptional()@IsString()model?:string}export class DialogTextDto{@IsString()deviceId!:string;@IsIn(['child','adult'])mode!:Mode;@IsIn(['mom','dad','lover','teacher','bestie'])persona!:Persona;@IsString()@MaxLength(2000)text!:string;@IsOptional()@IsString()conversationId?:string;@IsOptional()@IsIn(DIALECTS)dialect?:DialectCode}
+export class ReminderDto{@IsString()deviceId!:string;@IsString()type!:string;@IsString()title!:string;@IsString()content!:string;@Matches(/^([01]\d|2[0-3]):[0-5]\d$/)timeOfDay!:string;@IsString()repeatRule!:string;@IsOptional()@IsString()audioAssetId?:string;@IsBoolean()needConfirm!:boolean;@IsOptional()@IsBoolean()enabled?:boolean}export class ReminderPatchDto{@IsOptional()@IsString()title?:string;@IsOptional()@IsString()content?:string;@IsOptional()@Matches(/^([01]\d|2[0-3]):[0-5]\d$/)timeOfDay?:string;@IsOptional()@IsString()repeatRule?:string;@IsOptional()@IsBoolean()needConfirm?:boolean;@IsOptional()@IsBoolean()enabled?:boolean}export class ConfirmReminderDto{@IsIn(['device','app'])source!:'device'|'app';@IsOptional()@IsString()eventId?:string;@IsOptional()@IsString()confirmedAt?:string}
+export class InvitationDto{@IsString()targetUserId!:string;@IsIn(['couple','parent_child','bestie'])relationType!:'couple'|'parent_child'|'bestie';@IsOptional()@IsString()nickname?:string}export class InvitationDecisionDto{@IsOptional()@IsString()nickname?:string}export class MessageDto{@IsString()relationId!:string;@IsOptional()@IsString()receiverDeviceId?:string;@IsIn(['text','audio'])messageType!:'text'|'audio';@IsOptional()@IsString()text?:string;@IsOptional()@IsUrl()audioUrl?:string}
+export class CustomQaDto{@IsString()deviceId!:string;@IsString()question!:string;@IsOptional()@IsString()answerText?:string;@IsOptional()@IsUrl()answerAudioUrl?:string}export class CustomContentDto{@IsString()deviceId!:string;@IsIn(['story','song'])type!:'story'|'song';@IsString()title!:string;@IsUrl()audioUrl!:string;@IsNumber()@Min(1)@Max(300)duration!:number}export class ParentControlDto{@IsOptional()@IsArray()allowedTimeRanges?:Array&lt;{start:string,end:string}&gt;;@IsOptional()@IsObject()contentSwitches?:Record&lt;string,boolean&gt;;@IsOptional()@IsInt()@Min(0)@Max(100)maxVolume?:number;@IsOptional()@IsBoolean()dialogRecordEnabled?:boolean;@IsOptional()@IsBoolean()heatingEnabled?:boolean}export class PersonaVoiceDto{@IsOptional()@IsString()voiceId?:string|null}export class VoiceCloneDto{@IsUrl()sampleUrl!:string;@IsString()@MinLength(8)consentRecord!:string;@IsOptional()@IsIn(['mom','dad','lover','teacher','bestie'])persona?:Persona}
+export class OrderDto{@IsString()planId!:string;@IsIn(['month','year'])billingCycle!:'month'|'year'}export class ShopOrderDto{@IsString()productId!:string;@IsInt()@Min(1)@Max(10)quantity!:number;@IsString()addressId!:string}export class RewardRedeemDto{@IsString()productId!:string}export class OtaReportDto{@IsString()jobId!:string;@IsIn(['downloading','installing','succeeded','failed','rolled_back'])status!:string;@IsInt()@Min(0)@Max(100)progress!:number;@IsOptional()@IsString()errorCode?:string}
+export class OtaPackageDto{@IsIn(['firmware','expression_pack','kids_content','wake_words'])type!:string;@IsString()version!:string;@IsUrl()url!:string;@Matches(/^[a-f0-9]{64}$/)sha256!:string;@IsBoolean()mandatory!:boolean;@IsArray()compatibleModels!:string[];@IsInt()@Min(0)@Max(100)rolloutPercent!:number}export class WakeWordPackageDto{@IsIn(['wake_words'])type!:'wake_words';@IsIn(['阿西'])wakeWord!:'阿西';@IsIn(['WakeNet9'])modelFamily!:'WakeNet9';@IsString()version!:string;@IsUrl()url!:string;@Matches(/^[a-f0-9]{64}$/)sha256!:string;@IsArray()compatibleModels!:string[];@IsInt()@Min(0)@Max(100)rolloutPercent!:number;@IsBoolean()mandatory!:boolean;@IsOptional()@IsString()rollbackVersion?:string}export class AdminContentDto{@IsIn(['song','story','qa'])type!:string;@IsString()category!:string;@IsString()title!:string;@IsOptional()@IsString()text?:string;@IsOptional()@IsUrl()audioUrl?:string;@IsOptional()@IsNumber()duration?:number;@IsOptional()@IsBoolean()enabled?:boolean}export class AuditDecisionDto{@IsIn(['approved','rejected'])status!:'approved'|'rejected';@IsOptional()@IsString()reason?:string}export class UserStatusDto{@IsIn(['active','disabled'])status!:'active'|'disabled'}export class PaymentNotifyDto{@IsString()orderNo!:string;@IsString()transactionId!:string;@IsIn(['SUCCESS','REFUND'])tradeState!:'SUCCESS'|'REFUND';@IsString()signature!:string}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

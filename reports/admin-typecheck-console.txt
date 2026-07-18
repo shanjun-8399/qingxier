@@ -1,0 +1,4 @@
+
+> @qingxier/admin@2.0.0 typecheck
+> vue-tsc --noEmit
+

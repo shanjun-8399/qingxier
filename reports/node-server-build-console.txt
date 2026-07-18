@@ -1,0 +1,4 @@
+
+> @qingxier/server@2.0.0 build
+> tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json
+

@@ -1,0 +1,851 @@
+{
+  "generatedAt": "2026-07-17T20:10:14.363115+00:00",
+  "version": "2.0.0",
+  "runtime": "Node.js >=20",
+  "components": {
+    "server": {
+      "tests": 76,
+      "passed": 76,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 0.882,
+      "cases": [
+        {
+          "classname": "voice gateway closes unauthorized and non-device connections",
+          "name": "voice gateway closes unauthorized and non-device connections",
+          "time": 0.004,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "voice gateway handles ping and missing-session protocol errors",
+          "name": "voice gateway handles ping and missing-session protocol errors",
+          "time": 0.002,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "voice gateway handles complete start/audio/asr/route/tts/end flow",
+          "name": "voice gateway handles complete start/audio/asr/route/tts/end flow",
+          "time": 0.009,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "voice gateway uses query session and reports malformed/unsupported frames",
+          "name": "voice gateway uses query session and reports malformed/unsupported frames",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches signs and verifies JWT principals",
+          "name": "authentication, config and provider branches signs and verifies JWT principals",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"PORT\":\"0\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"PORT\":\"0\"}",
+          "time": 0.019,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"AUTH_MODE\":\"nope\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"AUTH_MODE\":\"nope\"}",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"AUTH_MODE\":\"jwt\",\"JWT_SECRET\":\"short\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"AUTH_MODE\":\"jwt\",\"JWT_SECRET\":\"short\"}",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"STORAGE_BACKEND\":\"x\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"STORAGE_BACKEND\":\"x\"}",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"EVENT_BACKEND\":\"x\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"EVENT_BACKEND\":\"x\"}",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"PROVIDER_MODE\":\"x\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"PROVIDER_MODE\":\"x\"}",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches rejects invalid configuration {\"PROVIDER_MODE\":\"dashscope\",\"DASHSCOPE_API_KEY\":\"\"}",
+          "name": "authentication, config and provider branches rejects invalid configuration {\"PROVIDER_MODE\":\"dashscope\",\"DASHSCOPE_API_KEY\":\"\"}",
+          "time": 0.0,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches selects memory and mock providers",
+          "name": "authentication, config and provider branches selects memory and mock providers",
+          "time": 0.0,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches calls DashScope TTS and OpenAI-compatible chat",
+          "name": "authentication, config and provider branches calls DashScope TTS and OpenAI-compatible chat",
+          "time": 0.007,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "authentication, config and provider branches surfaces provider HTTP errors and default chat reply",
+          "name": "authentication, config and provider branches surfaces provider HTTP errors and default chat reply",
+          "time": 0.002,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage refreshes token and exports account data",
+          "name": "extended endpoint and error coverage refreshes token and exports account data",
+          "time": 0.068,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage address delete and missing ownership",
+          "name": "extended endpoint and error coverage address delete and missing ownership",
+          "time": 0.02,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage bind errors and conflicting owner are rejected",
+          "name": "extended endpoint and error coverage bind errors and conflicting owner are rejected",
+          "time": 0.012,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage device status ownership and no-update OTA branches",
+          "name": "extended endpoint and error coverage device status ownership and no-update OTA branches",
+          "time": 0.019,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage rejects invalid speech thresholds and unknown session",
+          "name": "extended endpoint and error coverage rejects invalid speech thresholds and unknown session",
+          "time": 0.019,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage dialog list and child safe response",
+          "name": "extended endpoint and error coverage dialog list and child safe response",
+          "time": 0.014,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage reminder delete and invalid ownership branches",
+          "name": "extended endpoint and error coverage reminder delete and invalid ownership branches",
+          "time": 0.022,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage invitation self/unknown/reject/delete branches",
+          "name": "extended endpoint and error coverage invitation self/unknown/reject/delete branches",
+          "time": 0.031,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage message validation and listing branches",
+          "name": "extended endpoint and error coverage message validation and listing branches",
+          "time": 0.027,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage custom content delete and parent dialogue records",
+          "name": "extended endpoint and error coverage custom content delete and parent dialogue records",
+          "time": 0.019,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage voice clone webhook, persona bind and deletion",
+          "name": "extended endpoint and error coverage voice clone webhook, persona bind and deletion",
+          "time": 0.029,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage reward catalogue, balance and insufficient redeem",
+          "name": "extended endpoint and error coverage reward catalogue, balance and insufficient redeem",
+          "time": 0.012,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage subscription current/cancel/orders/shop list",
+          "name": "extended endpoint and error coverage subscription current/cancel/orders/shop list",
+          "time": 0.015,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage payment signature failure/refund branch",
+          "name": "extended endpoint and error coverage payment signature failure/refund branch",
+          "time": 0.012,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage admin status, lists, audits, expression and webhooks",
+          "name": "extended endpoint and error coverage admin status, lists, audits, expression and webhooks",
+          "time": 0.041,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage admin duplicate OTA and missing audit are rejected",
+          "name": "extended endpoint and error coverage admin duplicate OTA and missing audit are rejected",
+          "time": 0.013,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage wake package idempotency key boundaries and duplicate version",
+          "name": "extended endpoint and error coverage wake package idempotency key boundaries and duplicate version",
+          "time": 0.017,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "extended endpoint and error coverage supports custom request trace and standard method error",
+          "name": "extended endpoint and error coverage supports custom request trace and standard method error",
+          "time": 0.007,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech health",
+          "name": "core/auth/device/speech health",
+          "time": 0.018,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech ready",
+          "name": "core/auth/device/speech ready",
+          "time": 0.009,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech unknown path standard error",
+          "name": "core/auth/device/speech unknown path standard error",
+          "time": 0.004,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech requires auth",
+          "name": "core/auth/device/speech requires auth",
+          "time": 0.007,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech rejects wrong role",
+          "name": "core/auth/device/speech rejects wrong role",
+          "time": 0.003,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech wechat login",
+          "name": "core/auth/device/speech wechat login",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech rejects extra fields",
+          "name": "core/auth/device/speech rejects extra fields",
+          "time": 0.006,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech get/update me",
+          "name": "core/auth/device/speech get/update me",
+          "time": 0.009,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech bind phone validation",
+          "name": "core/auth/device/speech bind phone validation",
+          "time": 0.01,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech address lifecycle",
+          "name": "core/auth/device/speech address lifecycle",
+          "time": 0.012,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech device list/status",
+          "name": "core/auth/device/speech device list/status",
+          "time": 0.007,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech bind ticket",
+          "name": "core/auth/device/speech bind ticket",
+          "time": 0.005,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech update device and command",
+          "name": "core/auth/device/speech update device and command",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech speech capabilities",
+          "name": "core/auth/device/speech speech capabilities",
+          "time": 0.004,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech speech profile optimistic lock",
+          "name": "core/auth/device/speech speech profile optimistic lock",
+          "time": 0.013,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech cannot disable automatic dialect",
+          "name": "core/auth/device/speech cannot disable automatic dialect",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech wake status",
+          "name": "core/auth/device/speech wake status",
+          "time": 0.004,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech session device binding",
+          "name": "core/auth/device/speech session device binding",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech dialect high/mid/low routing",
+          "name": "core/auth/device/speech dialect high/mid/low routing",
+          "time": 0.015,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech tts clone and wu degradation",
+          "name": "core/auth/device/speech tts clone and wu degradation",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech tts blocks unbound voice and model",
+          "name": "core/auth/device/speech tts blocks unbound voice and model",
+          "time": 0.018,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech dialog and turns",
+          "name": "core/auth/device/speech dialog and turns",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "core/auth/device/speech admin wake package mfa and idempotency",
+          "name": "core/auth/device/speech admin wake package mfa and idempotency",
+          "time": 0.015,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains reminder CRUD and confirmation",
+          "name": "business domains reminder CRUD and confirmation",
+          "time": 0.046,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains relationship invitation flow",
+          "name": "business domains relationship invitation flow",
+          "time": 0.014,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains message and read receipt",
+          "name": "business domains message and read receipt",
+          "time": 0.01,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains kids content catalogue",
+          "name": "business domains kids content catalogue",
+          "time": 0.006,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains custom QA lifecycle",
+          "name": "business domains custom QA lifecycle",
+          "time": 0.015,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains custom content upload and audit queue",
+          "name": "business domains custom content upload and audit queue",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains parent control and sleep mode",
+          "name": "business domains parent control and sleep mode",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains personas and voice clone",
+          "name": "business domains personas and voice clone",
+          "time": 0.015,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains task rewards",
+          "name": "business domains task rewards",
+          "time": 0.012,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains subscriptions order and payment",
+          "name": "business domains subscriptions order and payment",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains shop order",
+          "name": "business domains shop order",
+          "time": 0.011,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains mood report",
+          "name": "business domains mood report",
+          "time": 0.003,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains admin dashboard and lists",
+          "name": "business domains admin dashboard and lists",
+          "time": 0.009,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains admin content CRUD",
+          "name": "business domains admin content CRUD",
+          "time": 0.02,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains admin OTA and device check",
+          "name": "business domains admin OTA and device check",
+          "time": 0.008,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "business domains admin metrics logs events",
+          "name": "business domains admin metrics logs events",
+          "time": 0.01,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "infrastructure config validates defaults",
+          "name": "infrastructure config validates defaults",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "infrastructure memory store CRUD",
+          "name": "infrastructure memory store CRUD",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "infrastructure mock ASR/TTS/chat/audit",
+          "name": "infrastructure mock ASR/TTS/chat/audit",
+          "time": 0.001,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "infrastructure memory events retain payload",
+          "name": "infrastructure memory events retain payload",
+          "time": 0.0,
+          "failed": false,
+          "skipped": false
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "total": 340,
+          "covered": 334,
+          "pct": 98.23
+        },
+        "statements": {
+          "total": 1349,
+          "covered": 1235,
+          "pct": 91.54
+        },
+        "functions": {
+          "total": 334,
+          "covered": 300,
+          "pct": 89.82
+        },
+        "branches": {
+          "total": 453,
+          "covered": 326,
+          "pct": 71.96
+        }
+      }
+    },
+    "miniprogram": {
+      "tests": 16,
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 0.029,
+      "cases": [
+        {
+          "classname": "test/api-contract.spec.ts",
+          "name": "miniapp API contract wrappers > maps every feature function to the V2 server contract",
+          "time": 0.009236663,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/ble.spec.ts",
+          "name": "BLE provisioning > discovers devices and provisions Wi-Fi",
+          "time": 0.001567042,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/ble.spec.ts",
+          "name": "BLE provisioning > validates Wi-Fi credentials",
+          "time": 0.000548448,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/ble.spec.ts",
+          "name": "BLE provisioning > records scan and write failures",
+          "time": 0.000631079,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "miniapp http client > adds bearer token and unwraps envelope",
+          "time": 0.001018386,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "miniapp http client > supports body/method/custom headers",
+          "time": 0.001565373,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "miniapp http client > throws structured API errors",
+          "time": 0.001451325,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "miniapp http client > throws on nonzero code even with HTTP 200",
+          "time": 0.001481721,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/stores.spec.ts",
+          "name": "pinia stores > logs in, restores and logs out",
+          "time": 0.005830323,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/stores.spec.ts",
+          "name": "pinia stores > loads device and refreshes status",
+          "time": 0.001452392,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/stores.spec.ts",
+          "name": "pinia stores > loads dashboard domains together",
+          "time": 0.001056388,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "miniapp view models > formats device status",
+          "time": 0.000531051,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "miniapp view models > handles empty device status",
+          "time": 0.000286323,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "miniapp view models > validates reminder form",
+          "time": 0.001000703,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "miniapp view models > creates automatic dialect notices",
+          "time": 0.000654224,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "miniapp view models > computes subscription usage and unread messages",
+          "time": 0.000572163,
+          "failed": false,
+          "skipped": false
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "total": 102,
+          "covered": 102,
+          "pct": 100
+        },
+        "statements": {
+          "total": 102,
+          "covered": 102,
+          "pct": 100
+        },
+        "functions": {
+          "total": 87,
+          "covered": 78,
+          "pct": 89.65
+        },
+        "branches": {
+          "total": 124,
+          "covered": 113,
+          "pct": 91.12
+        }
+      }
+    },
+    "admin": {
+      "tests": 10,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "durationSeconds": 0.024,
+      "cases": [
+        {
+          "classname": "test/api-contract.spec.ts",
+          "name": "admin API contract > maps all management functions",
+          "time": 0.010585781,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "admin http client > sends bearer/MFA/trace and unwraps data",
+          "time": 0.001710252,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "admin http client > throws structured errors",
+          "time": 0.002373858,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/http.spec.ts",
+          "name": "admin http client > clears session",
+          "time": 0.000633135,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/store-router.spec.ts",
+          "name": "admin store > logs in loads dashboard and logs out",
+          "time": 0.005536104,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "admin view models > builds cards",
+          "time": 0.000465789,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "admin view models > formats statuses",
+          "time": 0.000504194,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "admin view models > summarizes OTA",
+          "time": 0.000449979,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "admin view models > sorts dialects",
+          "time": 0.000443791,
+          "failed": false,
+          "skipped": false
+        },
+        {
+          "classname": "test/view-models.spec.ts",
+          "name": "admin view models > filters tables",
+          "time": 0.001279153,
+          "failed": false,
+          "skipped": false
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "total": 21,
+          "covered": 21,
+          "pct": 100
+        },
+        "statements": {
+          "total": 21,
+          "covered": 21,
+          "pct": 100
+        },
+        "functions": {
+          "total": 39,
+          "covered": 38,
+          "pct": 97.43
+        },
+        "branches": {
+          "total": 68,
+          "covered": 58,
+          "pct": 85.29
+        }
+      }
+    }
+  },
+  "totals": {
+    "tests": 102,
+    "passed": 102,
+    "failed": 0,
+    "skipped": 0
+  },
+  "builds": {
+    "server": "PASS",
+    "miniprogramMpWeixin": "PASS",
+    "admin": "PASS"
+  },
+  "processSmoke": {
+    "result": "PASS",
+    "checks": 7,
+    "health": "ok",
+    "accessToken": "user-token",
+    "devices": 1,
+    "routedDialect": "cantonese",
+    "ttsModel": "cosyvoice-v3.5-flash",
+    "adminUsers": 2,
+    "websocketFrames": [
+      "connected",
+      "started",
+      "dialect_result",
+      "tts_start",
+      "completed"
+    ]
+  },
+  "productionDependencyAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "result": "PASS"
+}

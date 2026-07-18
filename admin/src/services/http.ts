@@ -1,0 +1,9 @@
+import type { ApiEnvelope,ApiErrorEnvelope } from '@qingxier/contracts';
+export type HttpMethod='GET'|'POST'|'PATCH'|'DELETE';
+export interface RequestOptions{method?:HttpMethod;body?:unknown;headers?:Record<string,string>}
+export interface Transport{request(url:string,options:RequestOptions):Promise<{status:number;json:any}>}
+const fetchTransport:Transport={async request(url,options){const r=await fetch(url,{method:options.method??'GET',headers:{'Content-Type':'application/json',...options.headers},body:options.body===undefined?undefined:JSON.stringify(options.body)});return{status:r.status,json:await r.json()}}};
+let transport:Transport=fetchTransport;export const setTransport=(t:Transport)=>transport=t;
+export const adminSession={token:()=>localStorage.getItem('qingxier_admin_token')||'',mfa:()=>localStorage.getItem('qingxier_admin_mfa')==='true',save(token:string,mfa=true){localStorage.setItem('qingxier_admin_token',token);localStorage.setItem('qingxier_admin_mfa',String(mfa))},clear(){localStorage.removeItem('qingxier_admin_token');localStorage.removeItem('qingxier_admin_mfa')}};
+export class AdminHttpClient{constructor(private base=import.meta.env.VITE_API_BASE_URL||''){}async request<T>(path:string,options:RequestOptions={}):Promise<T>{const token=adminSession.token();const r=await transport.request(`${this.base}${path}`,{...options,headers:{Authorization:`Bearer ${token}`,'X-MFA-Verified':String(adminSession.mfa()),'X-Request-Id':`admin_${Date.now()}`,...options.headers}});const b=r.json as ApiEnvelope<T>|ApiErrorEnvelope;if(r.status<200||r.status>=300||b.code!==0){const e=new Error(b.message||'请求失败')as Error&{code?:number;error?:string;traceId?:string};e.code=b.code;e.error='error'in b?b.error:undefined;e.traceId=b.traceId;throw e;}return(b as ApiEnvelope<T>).data;}}
+export const adminHttp=new AdminHttpClient();

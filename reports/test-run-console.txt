@@ -1,0 +1,63 @@
+test_device_auth_header (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_device_auth_header) ... ok
+test_device_id_url_encoding (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_device_id_url_encoding) ... ok
+test_no_secret_leak_in_state (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_no_secret_leak_in_state) ... ok
+test_qwen_clone_business_error (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_qwen_clone_business_error) ... ok
+test_route_request_payload (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_route_request_payload) ... ok
+test_route_response_schema (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_route_response_schema) ... ok
+test_speech_profile_get_schema (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_speech_profile_get_schema) ... ok
+test_speech_profile_patch_schema (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_speech_profile_patch_schema) ... ok
+test_standard_error_parsing (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_standard_error_parsing) ... ok
+test_trace_id_capture (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_trace_id_capture) ... ok
+test_tts_request_payload (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_tts_request_payload) ... ok
+test_tts_response_schema (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_tts_response_schema) ... ok
+test_user_auth_header (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_user_auth_header) ... ok
+test_wake_status_schema (qingxier_work.tests.test_miniprogram_api.MiniProgramApiTests.test_wake_status_schema) ... ok
+test_bootstrap (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_bootstrap) ... ok
+test_capability_cache (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_capability_cache) ... ok
+test_clone_voice_preview (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_clone_voice_preview) ... ok
+test_expired_login_redirect (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_expired_login_redirect) ... ok
+test_high_confidence_dialect_indicator (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_high_confidence_dialect_indicator) ... ok
+test_hysteresis_banner (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_hysteresis_banner) ... ok
+test_local_audit_events (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_local_audit_events) ... ok
+test_low_confidence_banner (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_low_confidence_banner) ... ok
+test_manual_selector_hidden (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_manual_selector_hidden) ... ok
+test_network_error_state (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_network_error_state) ... ok
+test_update_fallback_dialect (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_update_fallback_dialect) ... ok
+test_wake_word_display (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_wake_word_display) ... ok
+test_wu_degradation_banner (qingxier_work.tests.test_miniprogram_functional.MiniProgramFunctionalTests.test_wu_degradation_banner) ... ok
+test_admin_permission (qingxier_work.tests.test_server_api.ServerApiTests.test_admin_permission) ... ok
+test_auto_dialect_cannot_be_disabled (qingxier_work.tests.test_server_api.ServerApiTests.test_auto_dialect_cannot_be_disabled) ... ok
+test_capability_schema (qingxier_work.tests.test_server_api.ServerApiTests.test_capability_schema) ... ok
+test_confidence_range_validation (qingxier_work.tests.test_server_api.ServerApiTests.test_confidence_range_validation) ... ok
+test_empty_tts_text (qingxier_work.tests.test_server_api.ServerApiTests.test_empty_tts_text) ... ok
+test_invalid_json (qingxier_work.tests.test_server_api.ServerApiTests.test_invalid_json) ... ok
+test_invalid_user_token (qingxier_work.tests.test_server_api.ServerApiTests.test_invalid_user_token) ... ok
+test_invalid_wake_model_family (qingxier_work.tests.test_server_api.ServerApiTests.test_invalid_wake_model_family) ... ok
+test_invalid_wake_package_sha (qingxier_work.tests.test_server_api.ServerApiTests.test_invalid_wake_package_sha) ... ok
+test_missing_user_token (qingxier_work.tests.test_server_api.ServerApiTests.test_missing_user_token) ... ok
+test_old_wake_word_rejected (qingxier_work.tests.test_server_api.ServerApiTests.test_old_wake_word_rejected) ... ok
+test_qwen_clone_conflict (qingxier_work.tests.test_server_api.ServerApiTests.test_qwen_clone_conflict) ... ok
+test_standard_response_and_trace (qingxier_work.tests.test_server_api.ServerApiTests.test_standard_response_and_trace) ... ok
+test_unknown_device (qingxier_work.tests.test_server_api.ServerApiTests.test_unknown_device) ... ok
+test_unknown_route_standard_404 (qingxier_work.tests.test_server_api.ServerApiTests.test_unknown_route_standard_404) ... ok
+test_unsupported_dialect (qingxier_work.tests.test_server_api.ServerApiTests.test_unsupported_dialect) ... ok
+test_capabilities_cover_required_dialects (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_capabilities_cover_required_dialects) ... ok
+test_clone_tts_routes_to_cosyvoice (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_clone_tts_routes_to_cosyvoice) ... ok
+test_default_speech_profile (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_default_speech_profile) ... ok
+test_dialog_text_contract (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_dialog_text_contract) ... ok
+test_health_check (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_health_check) ... ok
+test_high_confidence_dialect_lock (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_high_confidence_dialect_lock) ... ok
+test_low_confidence_profile_fallback (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_low_confidence_profile_fallback) ... ok
+test_medium_confidence_hysteresis (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_medium_confidence_hysteresis) ... ok
+test_system_voice_fallback_routes_to_qwen (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_system_voice_fallback_routes_to_qwen) ... ok
+test_update_profile_keeps_auto_detection (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_update_profile_keeps_auto_detection) ... ok
+test_wake_package_registration_idempotency (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_wake_package_registration_idempotency) ... ok
+test_wake_word_status (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_wake_word_status) ... ok
+test_wu_tts_explicit_degradation (qingxier_work.tests.test_server_functional.ServerFunctionalTests.test_wu_tts_explicit_degradation) ... ok
+
+----------------------------------------------------------------------
+Ran 56 tests in 2.192s
+
+OK
+
+RESULT_SUMMARY={"total": 56, "passed": 56, "failed": 0, "errors": 0, "skipped": 0}

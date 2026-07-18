@@ -1,0 +1,1 @@
+"use strict";const e=require("../common/vendor.js"),r="qingxier_access_token",n="qingxier_refresh_token",t={access:()=>String(e.index.getStorageSync(r)||""),refresh:()=>String(e.index.getStorageSync(n)||""),save(t,o){e.index.setStorageSync(r,t),e.index.setStorageSync(n,o)},clear(){e.index.removeStorageSync(r),e.index.removeStorageSync(n)}};exports.tokenStorage=t;

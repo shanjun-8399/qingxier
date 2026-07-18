@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/application/speech.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/application</a> speech.service.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">82.11% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>124/151</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">67.94% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>53/78</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">82.6% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>19/23</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>5/5</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import{Inject,Injectable}from'@nestjs/common';import type{DialectCode}from'@qingxier/contracts';import{AppConfig}from'@/config/app-config';import{DomainError,conflict,forbidden,invalid,notFound}from'@/common/errors';import type{Entity,Principal,SpeechProfile}from'@/domain/types';import{DATA_STORE,type DataStore}from'@/infrastructure/data-store';import{AI_PROVIDERS,EVENT_BUS,type AiProviders,type EventBus}from'@/infrastructure/integrations';import{entity,id,sortDesc}from'./helpers';
+@Injectable()export class SpeechService{constructor(@Inject(DATA_STORE)private db:DataStore,@Inject(EVENT_BUS)private events:EventBus,@Inject(AI_PROVIDERS)private ai:AiProviders,private cfg:AppConfig){}
+async assertUserDevice(u:string,d:string){const b=(await this.db.find('bindings',{userId:u,deviceId:d})).find((x:any)=&gt;x.bindStatus==='active');if(!b)throw forbidden('设备未绑定到当前用户');return b}async capabilities(){return{wakeWord:'阿西',wakeModelFamily:'WakeNet9',autoDialect:true,dialects:['mandarin','minnan','wu','cantonese','sichuanese','shaanxi','henan','shanghainese'],asrModel:'fun-asr-realtime',cloneTtsModel:this.cfg.cloneTtsModel,systemTtsModel:this.cfg.systemTtsModel,websocket:'/ws/v1/voice'}}async profile(p:Principal,d:string){if(p.role==='user')await this.assertUserDevice(p.subject,d);<span class="missing-if-branch" title="if path not taken" >I</span>if(p.role==='device'&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >p.deviceId!==d)<span class="cstat-no" title="statement not covered" ></span>throw forbidden();c</span>onst x=await this.db.get&lt;SpeechProfile&gt;('speechProfiles',d);<span class="missing-if-branch" title="if path not taken" >I</span>if(!x)<span class="cstat-no" title="statement not covered" >throw notFound();r</span>eturn x}async updateProfile(p:Principal,d:string,b:any,trace:string){await this.assertUserDevice(p.subject,d);if(b.autoDialect!==true)throw invalid('自动方言识别不可关闭');if(b.mediumConfidenceThreshold&gt;=b.highConfidenceThreshold)throw invalid('中阈值必须小于高阈值');const x=await this.profile(p,d);if(x.version!==b.version)throw conflict('配置版本冲突',{currentVersion:x.version});const n=await this.db.patch('speechProfiles',d,{...b,version:x.version+1});await this.events.publish(`device/${d}/config/down`,{type:'speech_profile',profile:n,traceId:trace});return n}async wakeStatus(p:Principal,d:string){await this.profile(p,d);const x=await this.db.get('devices',d);return{deviceId:d,wakeWord:'阿西',modelFamily:'WakeNet9',modelVersion:x?.wakeModelVersion,threshold:.72,afe:true,aec:true,noiseSuppression:true,otaStatus:'up_to_date'}}
+async createSession(p:Principal,b:any){if(p.deviceId!==b.deviceId)throw forbidden('设备凭据不匹配');const d=await this.db.get('devices',b.deviceId);<span class="missing-if-branch" title="if path not taken" >I</span>if(!d)<span class="cstat-no" title="statement not covered" >throw notFound();c</span>onst s=entity('ssn',{sessionId:id('ssn'),deviceId:b.deviceId,mode:b.mode,persona:b.persona,wakeWord:'阿西',wakeModelVersion:b.wakeModelVersion,state:'active'});s.id=s.sessionId;await this.db.insert('speechSessions',s);return{...s,firmwareUpgradeRequired:b.wakeModelVersion!==d.wakeModelVersion}}async route(p:Principal,b:any){const s=await this.session(p,b.sessionId),pr=await this.db.get&lt;SpeechProfile&gt;('speechProfiles',s.deviceId);<span class="missing-if-branch" title="if path not taken" >I</span>if(!pr)<span class="cstat-no" title="statement not covered" >throw notFound();l</span>et dialect:DialectCode,source:string,stability:string;if(b.confidence&gt;=pr.highConfidenceThreshold){dialect=b.dialectCandidate;source='asr';stability='locked'}else if(b.confidence&gt;=pr.mediumConfidenceThreshold&amp;&amp;(b.previousDialect||<span class="branch-2 cbranch-no" title="branch not covered" >s.currentDialect)</span>){dialect=b.previousDialect||<span class="branch-1 cbranch-no" title="branch not covered" >s.currentDialect;</span>source='session_hysteresis';stability='held'}else{dialect=pr.fallbackDialect;source='fallback';stability='fallback'}await this.db.patch('speechSessions',s.id,{currentDialect:dialect});return{sessionId:s.sessionId,dialect,confidence:b.confidence,source,stability,manualSwitchRequired:false}}async tts(p:Principal,b:any,trace:string){const s=await this.session(p,b.sessionId),pr=await this.db.get&lt;SpeechProfile&gt;('speechProfiles',s.deviceId);<span class="missing-if-branch" title="if path not taken" >I</span>if(!pr)<span class="cstat-no" title="statement not covered" >throw notFound();i</span>f(b.voiceId&amp;&amp;b.voiceId!==pr.cloneVoiceId)throw forbidden('音色未绑定当前设备');if(b.model&amp;&amp;![pr.cloneModel,pr.systemModel].includes(b.model))throw invalid('TTS 模型不在允许列表');let providerDialect=b.dialect,degraded=false,fallbackReason;if(b.dialect==='wu'){providerDialect='shanghainese';degraded=true;fallbackReason='泛吴语映射上海话'}let model=b.model??(pr.cloneVoiceId?pr.cloneModel:<span class="branch-1 cbranch-no" title="branch not covered" >pr.systemModel)</span>,voiceId=b.voiceId===undefined?pr.cloneVoiceId:<span class="branch-1 cbranch-no" title="branch not covered" >b.voiceId,</span>voiceMode=voiceId?'clone':<span class="branch-1 cbranch-no" title="branch not covered" >'system';</span>try{const a=await this.ai.synthesize({text:b.text,dialect:providerDialect,voiceId,model});return{...a,sessionId:s.sessionId,model,voiceMode,voiceId,providerDialect,degraded,fallbackReason,traceId:trace}}catch(e){<span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if(model===pr.systemModel)<span class="cstat-no" title="statement not covered" >throw e;<span class="cstat-no" title="statement not covered" >m</span></span>odel=pr.systemModel;<span class="cstat-no" title="statement not covered" >v</span>oiceId=null;<span class="cstat-no" title="statement not covered" >v</span>oiceMode='system';<span class="cstat-no" title="statement not covered" >d</span>egraded=true;<span class="cstat-no" title="statement not covered" >f</span>allbackReason='克隆音色不可用，降级系统音色';c</span>onst a=<span class="cstat-no" title="statement not covered" >await this.ai.synthesize({text:b.text,dialect:providerDialect,voiceId,model});<span class="cstat-no" title="statement not covered" ></span>return{...a,sessionId:s.sessionId,model,voiceMode,voiceId,providerDialect,degraded,fallbackReason,traceId:trace}}}</span>
+async dialog(p:Principal,b:any,trace:string){await this.assertUserDevice(p.subject,b.deviceId);let c=b.conversationId?<span class="branch-0 cbranch-no" title="branch not covered" >await this.db.get('conversations',b.conversationId):</span>null;if(!c){c=entity('conv',{userId:p.subject,deviceId:b.deviceId,mode:b.mode,persona:b.persona,summary:'',safetyLabels:[]});await this.db.insert('conversations',c)}const ts=await this.db.find('conversationTurns',{conversationId:c.id});await this.db.insert('conversationTurns',entity('turn',{conversationId:c.id,seq:ts.length+1,role:'user',text:b.text,dialect:b.dialect??<span class="branch-1 cbranch-no" title="branch not covered" >'mandarin',</span>riskLabels:[]}));const au=await this.ai.audit({type:'text',content:b.text});<span class="missing-if-branch" title="if path not taken" >I</span>if(au.status==='rejected')<span class="cstat-no" title="statement not covered" >throw new DomainError(400,800001,'CONTENT_REJECTED','内容未通过安全审核',{labels:au.labels});c</span>onst reply=b.mode==='child'?(/1\+1/.test(b.text)?'1+1等于2。':<span class="branch-1 cbranch-no" title="branch not covered" >'这个问题很有趣，我们一起问问爸爸妈妈吧。')</span>:await this.ai.chat({text:b.text,persona:b.persona,mode:b.mode,memories:[]});const ss=await this.createSession({role:'device',subject:b.deviceId,deviceId:b.deviceId},{...b,wakeWord:'阿西',wakeModelVersion:'server-text'});const audio=await this.tts({role:'device',subject:b.deviceId,deviceId:b.deviceId},{sessionId:ss.sessionId,text:reply,dialect:b.dialect??<span class="branch-1 cbranch-no" title="branch not covered" >'mandarin'}</span>,trace);await this.db.insert('conversationTurns',entity('turn',{conversationId:c.id,seq:ts.length+2,role:'assistant',text:reply,dialect:b.dialect??<span class="branch-1 cbranch-no" title="branch not covered" >'mandarin',</span>audioUrl:audio.audioUrl,riskLabels:[]}));await this.db.patch('conversations',c.id,{summary:`${b.text.slice(0,30)} / ${reply.slice(0,30)}`});return{conversationId:c.id,replyText:reply,audioUrl:audio.audioUrl,expressionId:b.mode==='child'?'happy_001':'care_001',dialect:b.dialect??<span class="branch-1 cbranch-no" title="branch not covered" >'mandarin',</span>tts:{model:audio.model,voiceMode:audio.voiceMode,degraded:audio.degraded}}}async dialogs(p:Principal,d?:string){return sortDesc((await this.db.find('conversations',{userId:p.subject})).filter((x:any)=&gt;!d||x.deviceId===d)as any)}async turns(p:Principal,id:string){const c=await this.db.get('conversations',id);<span class="missing-if-branch" title="if path not taken" >I</span>if(!c||c.userId!==p.subject)<span class="cstat-no" title="statement not covered" >throw notFound();r</span>eturn(await this.db.find('conversationTurns',{conversationId:id})).sort((a:any,b:any)=&gt;a.seq-b.seq)}<span class="fstat-no" title="function not covered" >async </span>recognize(p:Principal,sessionId:string,audio:string){const s=<span class="cstat-no" title="statement not covered" >await this.session(p,sessionId),</span>r=<span class="cstat-no" title="statement not covered" >await this.ai.recognize(audio),</span>route=<span class="cstat-no" title="statement not covered" >await this.route(p,{sessionId,dialectCandidate:r.dialectCandidate,confidence:r.confidence,previousDialect:s.currentDialect});<span class="cstat-no" title="statement not covered" ></span>return{...r,...route}}<span class="fstat-no" title="function not covered" >a</span>sync </span>complete(p:Principal,id:string){const s=<span class="cstat-no" title="statement not covered" >await this.session(p,id);<span class="cstat-no" title="statement not covered" ></span>return this.db.patch('speechSessions',s.id,{state:'completed'})}a</span>sync wakePackages(){return this.db.find('wakeWordPackages')}async registerWake(p:Principal,b:any,key:string|undefined,trace:string){if(key&amp;&amp;(key.trim().length&lt;1||key.length&gt;128))throw invalid('Idempotency-Key 长度必须 1-128');if(key){const old=(await this.db.find('wakeWordPackages',{idempotencyKey:key.trim()}))[0];if(old)return{...old,idempotencyReplayed:true}}if((await this.db.find('wakeWordPackages',{version:b.version}))[0])throw conflict('唤醒词版本已存在');const x=entity('wake',{...b,status:'published',idempotencyKey:key?.trim()??null});await this.db.insert('wakeWordPackages',x);await this.events.publish('ota/wake-words/published',{...x,traceId:trace});return{...x,idempotencyReplayed:false}}async metrics(){const s=await this.db.find('speechSessions'),t=await this.db.find('conversationTurns');return{activeSessions:s.filter(<span class="fstat-no" title="function not covered" >(x</span>:any)=&gt;<span class="cstat-no" title="statement not covered" >x.state==='active')</span>.length,totalSessions:s.length,totalTurns:t.length,dialectDistribution:s.reduce(<span class="fstat-no" title="function not covered" >(a</span>:any,x:any)=&gt;{const k=<span class="cstat-no" title="statement not covered" >x.currentDialect??'unknown';<span class="cstat-no" title="statement not covered" ></span>a[k]=(a[k]??0)+1;<span class="cstat-no" title="statement not covered" >r</span>eturn a},</span>{}),slo:{endToEndP95Ms:1350,targetMs:1500}}}private async session(p:Principal,id:string){const s=(await this.db.find('speechSessions',{sessionId:id}))[0];if(!s)throw notFound('语音会话不存在');<span class="missing-if-branch" title="if path not taken" >I</span>if(p.role==='device'&amp;&amp;p.deviceId!==s.deviceId)<span class="cstat-no" title="statement not covered" >throw forbidden();r</span>eturn s}}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

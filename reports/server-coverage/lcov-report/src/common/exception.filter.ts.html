@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/common/exception.filter.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/common</a> exception.filter.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">80% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>40/50</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">70.58% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>12/17</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>2/2</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import{ArgumentsHost,Catch,ExceptionFilter,HttpException}from'@nestjs/common';import type{Request,Response}from'express';import{DomainError}from'./errors';
+@Catch()export class AllExceptionsFilter implements ExceptionFilter{catch(e:unknown,h:ArgumentsHost){const c=h.switchToHttp(),res=c.getResponse&lt;Response&gt;(),req=c.getRequest&lt;Request&amp;{traceId?:string}&gt;();let status=500,code=500001,error='INTERNAL_ERROR',message='服务器内部错误',data:unknown;if(e instanceof DomainError){status=e.getStatus();code=e.code;error=e.error;message=e.message;data=e.data}else if(e instanceof HttpException){status=e.getStatus();const body=e.getResponse();if(status===404){code=404001;error='NOT_FOUND';message='请求的资源不存在'}else <span class="missing-if-branch" title="if path not taken" >I</span>if(status===405){<span class="cstat-no" title="statement not covered" >code=405001;<span class="cstat-no" title="statement not covered" >e</span>rror='METHOD_NOT_ALLOWED';<span class="cstat-no" title="statement not covered" >m</span>essage='请求方法不受支持'}e</span>lse if(status===400){code=400001;error='INVALID_ARGUMENT';message='请求参数校验失败';data=body}else if(status===401){code=401001;error='UNAUTHORIZED';message='未登录、令牌过期或凭据无效'}else if(status===403){code=403001;error='FORBIDDEN';message='无权访问该资源'}else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>if(status===429){<span class="cstat-no" title="statement not covered" >code=429001;<span class="cstat-no" title="statement not covered" >e</span>rror='RATE_LIMITED';<span class="cstat-no" title="statement not covered" >m</span>essage='请求过于频繁'}e</span>lse{<span class="cstat-no" title="statement not covered" >code=400000+status;<span class="cstat-no" title="statement not covered" >e</span>rror='HTTP_ERROR';<span class="cstat-no" title="statement not covered" >m</span>essage=e.message}}</span></span>res.status(status).json({code,message,error,data,traceId:req.traceId??<span class="branch-1 cbranch-no" title="branch not covered" >'trc_unknown'}</span>)}}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

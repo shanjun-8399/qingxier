@@ -1,0 +1,138 @@
+{
+  "pages": [
+    {
+      "path": "pages/login/index",
+      "style": {
+        "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationBarTitleText": "设备控制台"
+      }
+    },
+    {
+      "path": "pages/device-bind/index",
+      "style": {
+        "navigationBarTitleText": "设备配网"
+      }
+    },
+    {
+      "path": "pages/speech-settings/index",
+      "style": {
+        "navigationBarTitleText": "语音设置"
+      }
+    },
+    {
+      "path": "pages/reminders/index",
+      "style": {
+        "navigationBarTitleText": "提醒"
+      }
+    },
+    {
+      "path": "pages/relations/index",
+      "style": {
+        "navigationBarTitleText": "亲友圈"
+      }
+    },
+    {
+      "path": "pages/messages/index",
+      "style": {
+        "navigationBarTitleText": "消息中心"
+      }
+    },
+    {
+      "path": "pages/tasks/index",
+      "style": {
+        "navigationBarTitleText": "任务"
+      }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/parent-control/index",
+      "style": {
+        "navigationBarTitleText": "家长控制"
+      }
+    },
+    {
+      "path": "pages/custom-content/index",
+      "style": {
+        "navigationBarTitleText": "自定义内容"
+      }
+    },
+    {
+      "path": "pages/voice-clone/index",
+      "style": {
+        "navigationBarTitleText": "声音克隆"
+      }
+    },
+    {
+      "path": "pages/subscription/index",
+      "style": {
+        "navigationBarTitleText": "订阅"
+      }
+    },
+    {
+      "path": "pages/shop/index",
+      "style": {
+        "navigationBarTitleText": "商城"
+      }
+    },
+    {
+      "path": "pages/orders/index",
+      "style": {
+        "navigationBarTitleText": "订单"
+      }
+    },
+    {
+      "path": "pages/mood-report/index",
+      "style": {
+        "navigationBarTitleText": "心情周报"
+      }
+    },
+    {
+      "path": "pages/kids-content/index",
+      "style": {
+        "navigationBarTitleText": "幼儿内容"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f7fa"
+  },
+  "tabBar": {
+    "color": "#667085",
+    "selectedColor": "#1f6feb",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/reminders/index",
+        "text": "提醒"
+      },
+      {
+        "pagePath": "pages/relations/index",
+        "text": "亲友"
+      },
+      {
+        "pagePath": "pages/tasks/index",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  }
+}

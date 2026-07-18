@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "亲友圈",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

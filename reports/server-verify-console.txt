@@ -1,0 +1,40 @@
+[server] typecheck
+[server] build
+[server] tests
+PASS test/gateway-and-providers.spec.ts (7.124 s)
+PASS test/extended.e2e.spec.ts
+PASS test/core.e2e.spec.ts
+PASS test/business.e2e.spec.ts
+PASS test/infrastructure.spec.ts
+--------------------------|---------|----------|---------|---------|--------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s  
+--------------------------|---------|----------|---------|---------|--------------------
+All files                 |   91.54 |    71.96 |   89.82 |   98.23 |                    
+ src                      |     100 |      100 |     100 |     100 |                    
+  bootstrap.ts            |     100 |      100 |     100 |     100 |                    
+ src/api                  |   98.96 |    67.12 |   96.61 |     100 |                    
+  controllers.ts          |   98.05 |    48.38 |   96.52 |     100 | 13-154             
+  dto.ts                  |     100 |      100 |     100 |     100 |                    
+  voice.gateway.ts        |     100 |    80.95 |     100 |     100 | 15,25,27-28,30,33  
+ src/application          |   86.86 |    69.58 |   92.46 |   95.74 |                    
+  helpers.ts              |     100 |      100 |     100 |     100 |                    
+  platform.service.ts     |   88.28 |    70.37 |   94.06 |   95.55 | 25,39,54-55,74,159 
+  speech.service.ts       |   82.11 |    67.94 |    82.6 |     100 | 3-5                
+ src/common               |   92.07 |    69.09 |   91.66 |     100 |                    
+  auth.ts                 |     100 |     82.6 |     100 |     100 | 4                  
+  errors.ts               |   91.66 |    16.66 |   71.42 |     100 | 3                  
+  exception.filter.ts     |      80 |    70.58 |     100 |     100 | 2                  
+  response.interceptor.ts |      90 |       40 |     100 |     100 | 2                  
+  trace.middleware.ts     |     100 |      100 |     100 |     100 |                    
+ src/config               |     100 |      100 |     100 |     100 |                    
+  app-config.ts           |     100 |      100 |     100 |     100 |                    
+ src/infrastructure       |   77.58 |    62.85 |   61.36 |     100 |                    
+  data-store.ts           |   74.02 |    58.82 |   58.33 |     100 | 3-6                
+  integrations.ts         |   84.61 |    66.66 |      65 |     100 | 2-3                
+--------------------------|---------|----------|---------|---------|--------------------
+
+Test Suites: 5 passed, 5 total
+Tests:       76 passed, 76 total
+Snapshots:   0 total
+Time:        15.46 s
+Ran all test suites.

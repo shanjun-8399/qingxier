@@ -1,0 +1,1 @@
+<template><div class="toolbar"><div><h1 class="page-title">{{title}}</h1><div v-if="description" class="muted">{{description}}</div></div><slot/></div></template><script setup lang="ts">defineProps<{title:string;description?:string}>();</script>

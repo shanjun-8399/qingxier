@@ -1,0 +1,7 @@
+
+> @qingxier/miniprogram@2.0.0 build:mp-weixin
+> uni build -p mp-weixin
+
+Compiling...
+DONE  Build complete.
+Run method: open Weixin Mini Program Devtools, import [36mdist/build/mp-weixin[39m run.

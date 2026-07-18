@@ -1,0 +1,550 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/api/controllers.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/api</a> controllers.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">98.05% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>252/257</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">48.38% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>15/31</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">96.52% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>111/115</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>128/128</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Body, Controller, Delete, Get, Headers, HttpCode, Param, Patch, Post, Query, Req, ServiceUnavailableException } from '@nestjs/common';
+import type { Request } from 'express';
+import { CurrentPrincipal, Public, RequireMfa, Roles } from '@/common/auth';
+import type { Principal } from '@/domain/types';
+import { PlatformService } from '@/application/platform.service';
+import { SpeechService } from '@/application/speech.service';
+import * as D from './dto';
+&nbsp;
+@Controller()
+export class HealthController {
+  constructor(private readonly platform: PlatformService) {}
+  @Public() @Get('/health') health() { return this.platform.health(); }
+  @Public() @Get('/ready') async ready() { const x = await this.platform.ready(); <span class="missing-if-branch" title="if path not taken" >I</span>if (x.status !== 'ready') <span class="cstat-no" title="statement not covered" >throw new ServiceUnavailableException('服务尚未就绪'); </span>return x; }
+}
+&nbsp;
+@Controller('/api/v1')
+export class UserController {
+  constructor(private readonly p: PlatformService) {}
+  @Public() @Post('auth/wechat-login') @HttpCode(200) login(@Body() b: D.WechatLoginDto) { return this.p.login(b); }
+  @Public() @Post('auth/refresh') @HttpCode(200) refresh(@Body() b: D.RefreshDto) { return this.p.refresh(b); }
+  @Roles('user') @Post('auth/phone-bind') @HttpCode(200) phone(@CurrentPrincipal() q: Principal, @Body() b: D.PhoneBindDto) { return this.p.bindPhone(q, b); }
+  @Roles('user') @Get('users/me') me(@CurrentPrincipal() q: Principal) { return this.p.me(q); }
+  @Roles('user') @Patch('users/me') update(@CurrentPrincipal() q: Principal, @Body() b: D.UpdateUserDto) { return this.p.updateMe(q, b); }
+  @Roles('user') @Get('users/me/export') export(@CurrentPrincipal() q: Principal) { return this.p.exportMe(q); }
+  @Roles('user') @Delete('users/me') <span class="fstat-no" title="function not covered" >remove(</span>@CurrentPrincipal() q: Principal) { <span class="cstat-no" title="statement not covered" >return this.p.deleteMe(q); </span>}
+  @Roles('user') @Get('users/me/addresses') addresses(@CurrentPrincipal() q: Principal) { return this.p.addresses(q); }
+  @Roles('user') @Post('users/me/addresses') addAddress(@CurrentPrincipal() q: Principal, @Body() b: D.AddressDto) { return this.p.addAddress(q, b); }
+  @Roles('user') @Patch('users/me/addresses/:id') patchAddress(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.AddressDto) { return this.p.patchAddress(q, id, b); }
+  @Roles('user') @Delete('users/me/addresses/:id') deleteAddress(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteAddress(q, id); }
+}
+&nbsp;
+@Controller('/api/v1')
+export class DeviceSpeechController {
+  constructor(private readonly p: PlatformService, private readonly s: SpeechService) {}
+  @Roles('user') @Post('devices/bind-ticket') bindTicket(@CurrentPrincipal() q: Principal, @Body() b: D.BindTicketDto) { return this.p.bindTicket(q, b); }
+  @Roles('user') @Post('devices/bind') bind(@CurrentPrincipal() q: Principal, @Body() b: D.BindDeviceDto) { return this.p.bindDevice(q, b); }
+  @Roles('user') @Get('devices') devices(@CurrentPrincipal() q: Principal) { return this.p.devices(q); }
+  @Roles('user') @Get('devices/:id/status') status(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deviceStatus(q, id); }
+  @Roles('user') @Patch('devices/:id') update(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.UpdateDeviceDto) { return this.p.updateDevice(q, id, b); }
+  @Roles('user') @Delete('devices/:id/binding') <span class="fstat-no" title="function not covered" >unbind(</span>@CurrentPrincipal() q: Principal, @Param('id') id: string) { <span class="cstat-no" title="statement not covered" >return this.p.unbind(q, id); </span>}
+  @Roles('user') @Post('devices/:id/commands') @HttpCode(200) command(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.DeviceCommandDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.command(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user') @Get('speech/capabilities') capabilities() { return this.s.capabilities(); }
+  @Roles('user') @Get('devices/:id/speech-profile') profile(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.s.profile(q, id); }
+  @Roles('user') @Patch('devices/:id/speech-profile') patchProfile(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.SpeechProfileUpdateDto, @Req() r: Request &amp; { traceId?: string }) { return this.s.updateProfile(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user') @Get('devices/:id/wake-word/status') wake(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.s.wakeStatus(q, id); }
+  @Roles('device') @Post('speech/sessions') session(@CurrentPrincipal() q: Principal, @Body() b: D.SpeechSessionDto) { return this.s.createSession(q, b); }
+  @Roles('device') @Post('speech/route') @HttpCode(200) route(@CurrentPrincipal() q: Principal, @Body() b: D.DialectRouteDto) { return this.s.route(q, b); }
+  @Roles('device') @Post('speech/tts') @HttpCode(200) tts(@CurrentPrincipal() q: Principal, @Body() b: D.TtsDto, @Req() r: Request &amp; { traceId?: string }) { return this.s.tts(q, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user','device') @Get('devices/:id/ota/check') ota(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Query('currentFirmware') v?: string) { return this.p.otaCheck(q, id, v); }
+  @Roles('device') @Post('device/ota/report') @HttpCode(200) report(@CurrentPrincipal() q: Principal, @Body() b: D.OtaReportDto) { return this.p.otaReport(q, b); }
+  @Roles('admin') @Get('admin/wake-word-packages') wakePackages() { return this.s.wakePackages(); }
+  @Roles('admin') @RequireMfa() @Post('admin/wake-word-packages') wakePackage(@CurrentPrincipal() q: Principal, @Body() b: D.WakeWordPackageDto, @Headers('idempotency-key') key: string | undefined, @Req() r: Request &amp; { traceId?: string }) { return this.s.registerWake(q, b, key, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+}
+&nbsp;
+@Controller('/api/v1')
+export class InteractionController {
+  constructor(private readonly p: PlatformService, private readonly s: SpeechService) {}
+  @Roles('user') @Post('dialogs/text') @HttpCode(200) dialog(@CurrentPrincipal() q: Principal, @Body() b: D.DialogTextDto, @Req() r: Request &amp; { traceId?: string }) { return this.s.dialog(q, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user') @Get('dialogs') dialogs(@CurrentPrincipal() q: Principal, @Query('deviceId') d?: string) { return this.s.dialogs(q, d); }
+  @Roles('user') @Get('dialogs/:id/turns') turns(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.s.turns(q, id); }
+  @Roles('user') @Get('mood-reports/weekly') mood(@CurrentPrincipal() q: Principal) { return this.p.mood(q); }
+  @Roles('user') @Get('reminders') reminders(@CurrentPrincipal() q: Principal) { return this.p.reminders(q); }
+  @Roles('user') @Post('reminders') addReminder(@CurrentPrincipal() q: Principal, @Body() b: D.ReminderDto) { return this.p.addReminder(q, b); }
+  @Roles('user') @Patch('reminders/:id') patchReminder(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.ReminderPatchDto) { return this.p.patchReminder(q, id, b); }
+  @Roles('user') @Delete('reminders/:id') deleteReminder(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteReminder(q, id); }
+  @Roles('user') @Post('reminders/:id/confirm') @HttpCode(200) confirmReminder(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.ConfirmReminderDto) { return this.p.confirmReminder(q, id, b); }
+  @Roles('user') @Get('reminders/:id/events') reminderEvents(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.reminderEvents(q, id); }
+}
+&nbsp;
+@Controller('/api/v1')
+export class SocialContentController {
+  constructor(private readonly p: PlatformService) {}
+  @Roles('user') @Get('relations/invitations') invitations(@CurrentPrincipal() q: Principal) { return this.p.invitations(q); }
+  @Roles('user') @Post('relations/invitations') invite(@CurrentPrincipal() q: Principal, @Body() b: D.InvitationDto) { return this.p.invite(q, b); }
+  @Roles('user') @Post('relations/invitations/:id/accept') @HttpCode(200) accept(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.InvitationDecisionDto) { return this.p.decideInvitation(q, id, true, b); }
+  @Roles('user') @Post('relations/invitations/:id/reject') @HttpCode(200) reject(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.InvitationDecisionDto) { return this.p.decideInvitation(q, id, false, b); }
+  @Roles('user') @Get('relations') relations(@CurrentPrincipal() q: Principal) { return this.p.relations(q); }
+  @Roles('user') @Delete('relations/:id') deleteRelation(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteRelation(q, id); }
+  @Roles('user') @Get('messages') messages(@CurrentPrincipal() q: Principal) { return this.p.messages(q); }
+  @Roles('user') @Post('messages') message(@CurrentPrincipal() q: Principal, @Body() b: D.MessageDto) { return this.p.sendMessage(q, b); }
+  @Roles('user') @Post('messages/:id/read') @HttpCode(200) read(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.readMessage(q, id); }
+  @Roles('user') @Get('kids/content/categories') categories() { return this.p.categories(); }
+  @Roles('user') @Get('kids/content') content(@Query('category') c?: string) { return this.p.kidsContent(c); }
+  @Roles('user') @Get('custom-qas') qas(@CurrentPrincipal() q: Principal) { return this.p.qas(q); }
+  @Roles('user') @Post('custom-qas') addQa(@CurrentPrincipal() q: Principal, @Body() b: D.CustomQaDto) { return this.p.addQa(q, b); }
+  @Roles('user') @Patch('custom-qas/:id') patchQa(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.CustomQaDto) { return this.p.patchQa(q, id, b); }
+  @Roles('user') @Delete('custom-qas/:id') deleteQa(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteQa(q, id); }
+  @Roles('user') @Post('custom-contents/upload-token') @HttpCode(200) upload(@CurrentPrincipal() q: Principal) { return this.p.uploadToken(q, 'custom-content'); }
+  @Roles('user') @Get('custom-contents') custom(@CurrentPrincipal() q: Principal) { return this.p.customContents(q); }
+  @Roles('user') @Post('custom-contents') addCustom(@CurrentPrincipal() q: Principal, @Body() b: D.CustomContentDto) { return this.p.addCustomContent(q, b); }
+  @Roles('user') @Delete('custom-contents/:id') deleteCustom(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteCustomContent(q, id); }
+  @Roles('user') @Get('parent-controls/:id') parent(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.parentControl(q, id); }
+  @Roles('user') @Patch('parent-controls/:id') patchParent(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.ParentControlDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.updateParentControl(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user') @Get('parent-controls/:id/dialog-records') records(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.parentRecords(q, id); }
+  @Roles('user') @Post('parent-controls/:id/sleep-mode') @HttpCode(200) sleep(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Req() r: Request &amp; { traceId?: string }) { return this.p.sleepMode(q, id, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Roles('user') @Get('personas') personas() { return this.p.personas(); }
+  @Roles('user') @Patch('personas/:persona/voice') personaVoice(@CurrentPrincipal() q: Principal, @Param('persona') persona: string, @Body() b: D.PersonaVoiceDto) { return this.p.setPersonaVoice(q, persona, b); }
+  @Roles('user') @Post('voice-clones/upload-token') @HttpCode(200) voiceUpload(@CurrentPrincipal() q: Principal) { return this.p.uploadToken(q, 'voice-clone'); }
+  @Roles('user') @Get('voice-clones') <span class="fstat-no" title="function not covered" >voices(</span>@CurrentPrincipal() q: Principal) { <span class="cstat-no" title="statement not covered" >return this.p.voiceClones(q); </span>}
+  @Roles('user') @Post('voice-clones') addVoice(@CurrentPrincipal() q: Principal, @Body() b: D.VoiceCloneDto) { return this.p.addVoiceClone(q, b); }
+  @Roles('user') @Get('voice-clones/:id') voice(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.voiceClone(q, id); }
+  @Roles('user') @Delete('voice-clones/:id') deleteVoice(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.deleteVoiceClone(q, id); }
+}
+&nbsp;
+@Controller('/api/v1')
+export class CommerceController {
+  constructor(private readonly p: PlatformService) {}
+  @Roles('user') @Get('tasks/today') tasks(@CurrentPrincipal() q: Principal) { return this.p.tasks(q); }
+  @Roles('user') @Post('tasks/:id/claim') @HttpCode(200) claim(@CurrentPrincipal() q: Principal, @Param('id') id: string) { return this.p.claimTask(q, id); }
+  @Roles('user') @Get('rewards/balance') balance(@CurrentPrincipal() q: Principal) { return this.p.rewardBalance(q); }
+  @Roles('user') @Get('rewards/catalog') catalog() { return this.p.rewardCatalog(); }
+  @Roles('user') @Post('rewards/redeem') @HttpCode(200) redeem(@CurrentPrincipal() q: Principal, @Body() b: D.RewardRedeemDto) { return this.p.redeem(q, b); }
+  @Roles('user') @Get('subscription/plans') plans() { return this.p.plans(); }
+  @Roles('user') @Get('subscription/current') subscription(@CurrentPrincipal() q: Principal) { return this.p.currentSubscription(q); }
+  @Roles('user') @Post('subscription/cancel-renewal') @HttpCode(200) cancel(@CurrentPrincipal() q: Principal) { return this.p.cancelRenewal(q); }
+  @Roles('user') @Get('orders') orders(@CurrentPrincipal() q: Principal) { return this.p.orders(q); }
+  @Roles('user') @Post('orders') order(@CurrentPrincipal() q: Principal, @Body() b: D.OrderDto) { return this.p.createOrder(q, b); }
+  @Public() @Post('payments/wechat/notify') @HttpCode(200) payment(@Body() b: D.PaymentNotifyDto) { return this.p.payment(b); }
+  @Roles('user') @Get('shop/products') products() { return this.p.products(); }
+  @Roles('user') @Get('shop/orders') shopOrders(@CurrentPrincipal() q: Principal) { return this.p.shopOrders(q); }
+  @Roles('user') @Post('shop/orders') shopOrder(@CurrentPrincipal() q: Principal, @Body() b: D.ShopOrderDto) { return this.p.shopOrder(q, b); }
+}
+&nbsp;
+@Controller('/api/v1/admin')
+@Roles('admin')
+export class AdminController {
+  constructor(private readonly p: PlatformService, private readonly s: SpeechService) {}
+  @Get('dashboard') dashboard() { return this.p.dashboard(); }
+  @Get('users') users() { return this.p.adminUsers(); }
+  @RequireMfa() @Patch('users/:id/status') userStatus(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.UserStatusDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.userStatus(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Get('devices') devices() { return this.p.adminDevices(); }
+  @Get('orders') orders() { return this.p.adminOrders(); }
+  @Get('content-library') content() { return this.p.adminContent(); }
+  @RequireMfa() @Post('content-library') addContent(@CurrentPrincipal() q: Principal, @Body() b: D.AdminContentDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.addAdminContent(q, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @RequireMfa() @Patch('content-library/:id') patchContent(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.AdminContentDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.patchAdminContent(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @RequireMfa() @Delete('content-library/:id') deleteContent(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Req() r: Request &amp; { traceId?: string }) { return this.p.deleteAdminContent(q, id, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Get('content-audits') audits() { return this.p.contentAudits(); }
+  @RequireMfa() @Patch('content-audits/:id') audit(@CurrentPrincipal() q: Principal, @Param('id') id: string, @Body() b: D.AuditDecisionDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.decideAudit(q, id, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Get('ota-packages') <span class="fstat-no" title="function not covered" >ota(</span>) { <span class="cstat-no" title="statement not covered" >return this.p.otaPackages(); </span>}
+  @RequireMfa() @Post('ota-packages') addOta(@CurrentPrincipal() q: Principal, @Body() b: D.OtaPackageDto, @Req() r: Request &amp; { traceId?: string }) { return this.p.addOta(q, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Get('expression-packs') expressions() { return this.p.expressionPacks(); }
+  @RequireMfa() @Post('expression-packs') addExpression(@CurrentPrincipal() q: Principal, @Body() b: any, @Req() r: Request &amp; { traceId?: string }) { return this.p.addExpression(q, b, r.traceId ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>; }
+  @Get('voice-clones') voices() { return this.p.adminVoiceClones(); }
+  @Get('speech/metrics') metrics() { return this.s.metrics(); }
+  @Get('audit-logs') logs() { return this.p.auditLogs(); }
+  @Get('events') events() { return this.p.adminEvents(); }
+}
+&nbsp;
+@Controller('/api/v1/webhooks')
+export class WebhookController {
+  constructor(private readonly p: PlatformService) {}
+  @Public() @Post('voice-clone/:provider') @HttpCode(200) voice(@Param('provider') provider: string, @Body() b: any) { return this.p.voiceWebhook(provider, b); }
+  @Public() @Post('content-audit/:provider') @HttpCode(200) content(@Param('provider') provider: string, @Body() body: any) { return { provider, received: true, body }; }
+  @Public() @Post('cos/events') @HttpCode(200) cos(@Body() body: any) { return { received: true, event: body.event ?? <span class="branch-1 cbranch-no" title="branch not covered" >'unknown' </span>}; }
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

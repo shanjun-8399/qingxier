@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "家长控制",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

@@ -1,0 +1,4 @@
+
+> @qingxier/miniprogram@2.0.0 typecheck
+> vue-tsc --noEmit -p tsconfig.json
+

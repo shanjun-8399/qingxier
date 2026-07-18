@@ -1,0 +1,1 @@
+<view class="page"><view class="title">订阅服务</view><app-card wx:for="{{a}}" wx:for-item="x" wx:key="d" u-s="{{['d']}}" u-i="{{x.e}}" bind:__l="__l" u-p="{{x.f}}"><view>月费 ¥{{x.a}} / 年费 ¥{{x.b}}</view><button class="btn" bindtap="{{x.c}}">购买</button></app-card></view>

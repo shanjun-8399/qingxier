@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="16" failures="0" errors="0" time="2.448">
+    <testsuite name="test/api-contract.spec.ts" timestamp="2026-07-17T20:09:07.714Z" hostname="402ed8b56749" tests="1" failures="0" errors="0" skipped="0" time="0.010831783">
+        <testcase classname="test/api-contract.spec.ts" name="miniapp API contract wrappers &gt; maps every feature function to the V2 server contract" time="0.009236663">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/ble.spec.ts" timestamp="2026-07-17T20:09:07.715Z" hostname="402ed8b56749" tests="3" failures="0" errors="0" skipped="0" time="0.003084786">
+        <testcase classname="test/ble.spec.ts" name="BLE provisioning &gt; discovers devices and provisions Wi-Fi" time="0.001567042">
+        </testcase>
+        <testcase classname="test/ble.spec.ts" name="BLE provisioning &gt; validates Wi-Fi credentials" time="0.000548448">
+        </testcase>
+        <testcase classname="test/ble.spec.ts" name="BLE provisioning &gt; records scan and write failures" time="0.000631079">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/http.spec.ts" timestamp="2026-07-17T20:09:07.716Z" hostname="402ed8b56749" tests="4" failures="0" errors="0" skipped="0" time="0.005853366">
+        <testcase classname="test/http.spec.ts" name="miniapp http client &gt; adds bearer token and unwraps envelope" time="0.001018386">
+        </testcase>
+        <testcase classname="test/http.spec.ts" name="miniapp http client &gt; supports body/method/custom headers" time="0.001565373">
+        </testcase>
+        <testcase classname="test/http.spec.ts" name="miniapp http client &gt; throws structured API errors" time="0.001451325">
+        </testcase>
+        <testcase classname="test/http.spec.ts" name="miniapp http client &gt; throws on nonzero code even with HTTP 200" time="0.001481721">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/stores.spec.ts" timestamp="2026-07-17T20:09:07.718Z" hostname="402ed8b56749" tests="3" failures="0" errors="0" skipped="0" time="0.008590466">
+        <testcase classname="test/stores.spec.ts" name="pinia stores &gt; logs in, restores and logs out" time="0.005830323">
+        </testcase>
+        <testcase classname="test/stores.spec.ts" name="pinia stores &gt; loads device and refreshes status" time="0.001452392">
+        </testcase>
+        <testcase classname="test/stores.spec.ts" name="pinia stores &gt; loads dashboard domains together" time="0.001056388">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/view-models.spec.ts" timestamp="2026-07-17T20:09:07.720Z" hostname="402ed8b56749" tests="5" failures="0" errors="0" skipped="0" time="0.003340389">
+        <testcase classname="test/view-models.spec.ts" name="miniapp view models &gt; formats device status" time="0.000531051">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="miniapp view models &gt; handles empty device status" time="0.000286323">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="miniapp view models &gt; validates reminder form" time="0.001000703">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="miniapp view models &gt; creates automatic dialect notices" time="0.000654224">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="miniapp view models &gt; computes subscription usage and unread messages" time="0.000572163">
+        </testcase>
+    </testsuite>
+</testsuites>

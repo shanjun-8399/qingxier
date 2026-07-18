@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "自定义内容",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

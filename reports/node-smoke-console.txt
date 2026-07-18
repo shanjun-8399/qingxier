@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "checks": 7,
+  "health": "ok",
+  "accessToken": "user-token",
+  "devices": 1,
+  "routedDialect": "cantonese",
+  "ttsModel": "cosyvoice-v3.5-flash",
+  "adminUsers": 2,
+  "websocketFrames": [
+    "connected",
+    "started",
+    "dialect_result",
+    "tts_start",
+    "completed"
+  ]
+}

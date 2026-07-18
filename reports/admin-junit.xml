@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="10" failures="0" errors="0" time="2.369">
+    <testsuite name="test/api-contract.spec.ts" timestamp="2026-07-17T20:09:39.700Z" hostname="402ed8b56749" tests="1" failures="0" errors="0" skipped="0" time="0.013082587">
+        <testcase classname="test/api-contract.spec.ts" name="admin API contract &gt; maps all management functions" time="0.010585781">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/http.spec.ts" timestamp="2026-07-17T20:09:39.702Z" hostname="402ed8b56749" tests="3" failures="0" errors="0" skipped="0" time="0.005003448">
+        <testcase classname="test/http.spec.ts" name="admin http client &gt; sends bearer/MFA/trace and unwraps data" time="0.001710252">
+        </testcase>
+        <testcase classname="test/http.spec.ts" name="admin http client &gt; throws structured errors" time="0.002373858">
+        </testcase>
+        <testcase classname="test/http.spec.ts" name="admin http client &gt; clears session" time="0.000633135">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/store-router.spec.ts" timestamp="2026-07-17T20:09:39.704Z" hostname="402ed8b56749" tests="1" failures="0" errors="0" skipped="0" time="0.005745536">
+        <testcase classname="test/store-router.spec.ts" name="admin store &gt; logs in loads dashboard and logs out" time="0.005536104">
+        </testcase>
+    </testsuite>
+    <testsuite name="test/view-models.spec.ts" timestamp="2026-07-17T20:09:39.705Z" hostname="402ed8b56749" tests="5" failures="0" errors="0" skipped="0" time="0.003426987">
+        <testcase classname="test/view-models.spec.ts" name="admin view models &gt; builds cards" time="0.000465789">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="admin view models &gt; formats statuses" time="0.000504194">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="admin view models &gt; summarizes OTA" time="0.000449979">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="admin view models &gt; sorts dialects" time="0.000443791">
+        </testcase>
+        <testcase classname="test/view-models.spec.ts" name="admin view models &gt; filters tables" time="0.001279153">
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="76" failures="0" errors="0" time="8.98">
+  <testsuite name="voice gateway" errors="0" failures="0" skipped="0" timestamp="2026-07-17T20:08:33" time="4.442" tests="15">
+    <testcase classname="voice gateway closes unauthorized and non-device connections" name="voice gateway closes unauthorized and non-device connections" time="0.004">
+    </testcase>
+    <testcase classname="voice gateway handles ping and missing-session protocol errors" name="voice gateway handles ping and missing-session protocol errors" time="0.002">
+    </testcase>
+    <testcase classname="voice gateway handles complete start/audio/asr/route/tts/end flow" name="voice gateway handles complete start/audio/asr/route/tts/end flow" time="0.009">
+    </testcase>
+    <testcase classname="voice gateway uses query session and reports malformed/unsupported frames" name="voice gateway uses query session and reports malformed/unsupported frames" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches signs and verifies JWT principals" name="authentication, config and provider branches signs and verifies JWT principals" time="0.008">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;PORT&quot;:&quot;0&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;PORT&quot;:&quot;0&quot;}" time="0.019">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;AUTH_MODE&quot;:&quot;nope&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;AUTH_MODE&quot;:&quot;nope&quot;}" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;AUTH_MODE&quot;:&quot;jwt&quot;,&quot;JWT_SECRET&quot;:&quot;short&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;AUTH_MODE&quot;:&quot;jwt&quot;,&quot;JWT_SECRET&quot;:&quot;short&quot;}" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;STORAGE_BACKEND&quot;:&quot;x&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;STORAGE_BACKEND&quot;:&quot;x&quot;}" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;EVENT_BACKEND&quot;:&quot;x&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;EVENT_BACKEND&quot;:&quot;x&quot;}" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;PROVIDER_MODE&quot;:&quot;x&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;PROVIDER_MODE&quot;:&quot;x&quot;}" time="0.001">
+    </testcase>
+    <testcase classname="authentication, config and provider branches rejects invalid configuration {&quot;PROVIDER_MODE&quot;:&quot;dashscope&quot;,&quot;DASHSCOPE_API_KEY&quot;:&quot;&quot;}" name="authentication, config and provider branches rejects invalid configuration {&quot;PROVIDER_MODE&quot;:&quot;dashscope&quot;,&quot;DASHSCOPE_API_KEY&quot;:&quot;&quot;}" time="0">
+    </testcase>
+    <testcase classname="authentication, config and provider branches selects memory and mock providers" name="authentication, config and provider branches selects memory and mock providers" time="0">
+    </testcase>
+    <testcase classname="authentication, config and provider branches calls DashScope TTS and OpenAI-compatible chat" name="authentication, config and provider branches calls DashScope TTS and OpenAI-compatible chat" time="0.007">
+    </testcase>
+    <testcase classname="authentication, config and provider branches surfaces provider HTTP errors and default chat reply" name="authentication, config and provider branches surfaces provider HTTP errors and default chat reply" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="extended endpoint and error coverage" errors="0" failures="0" skipped="0" timestamp="2026-07-17T20:08:37" time="1.765" tests="18">
+    <testcase classname="extended endpoint and error coverage refreshes token and exports account data" name="extended endpoint and error coverage refreshes token and exports account data" time="0.068">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage address delete and missing ownership" name="extended endpoint and error coverage address delete and missing ownership" time="0.02">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage bind errors and conflicting owner are rejected" name="extended endpoint and error coverage bind errors and conflicting owner are rejected" time="0.012">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage device status ownership and no-update OTA branches" name="extended endpoint and error coverage device status ownership and no-update OTA branches" time="0.019">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage rejects invalid speech thresholds and unknown session" name="extended endpoint and error coverage rejects invalid speech thresholds and unknown session" time="0.019">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage dialog list and child safe response" name="extended endpoint and error coverage dialog list and child safe response" time="0.014">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage reminder delete and invalid ownership branches" name="extended endpoint and error coverage reminder delete and invalid ownership branches" time="0.022">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage invitation self/unknown/reject/delete branches" name="extended endpoint and error coverage invitation self/unknown/reject/delete branches" time="0.031">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage message validation and listing branches" name="extended endpoint and error coverage message validation and listing branches" time="0.027">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage custom content delete and parent dialogue records" name="extended endpoint and error coverage custom content delete and parent dialogue records" time="0.019">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage voice clone webhook, persona bind and deletion" name="extended endpoint and error coverage voice clone webhook, persona bind and deletion" time="0.029">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage reward catalogue, balance and insufficient redeem" name="extended endpoint and error coverage reward catalogue, balance and insufficient redeem" time="0.012">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage subscription current/cancel/orders/shop list" name="extended endpoint and error coverage subscription current/cancel/orders/shop list" time="0.015">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage payment signature failure/refund branch" name="extended endpoint and error coverage payment signature failure/refund branch" time="0.012">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage admin status, lists, audits, expression and webhooks" name="extended endpoint and error coverage admin status, lists, audits, expression and webhooks" time="0.041">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage admin duplicate OTA and missing audit are rejected" name="extended endpoint and error coverage admin duplicate OTA and missing audit are rejected" time="0.013">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage wake package idempotency key boundaries and duplicate version" name="extended endpoint and error coverage wake package idempotency key boundaries and duplicate version" time="0.017">
+    </testcase>
+    <testcase classname="extended endpoint and error coverage supports custom request trace and standard method error" name="extended endpoint and error coverage supports custom request trace and standard method error" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="core/auth/device/speech" errors="0" failures="0" skipped="0" timestamp="2026-07-17T20:08:39" time="0.988" tests="23">
+    <testcase classname="core/auth/device/speech health" name="core/auth/device/speech health" time="0.018">
+    </testcase>
+    <testcase classname="core/auth/device/speech ready" name="core/auth/device/speech ready" time="0.009">
+    </testcase>
+    <testcase classname="core/auth/device/speech unknown path standard error" name="core/auth/device/speech unknown path standard error" time="0.004">
+    </testcase>
+    <testcase classname="core/auth/device/speech requires auth" name="core/auth/device/speech requires auth" time="0.007">
+    </testcase>
+    <testcase classname="core/auth/device/speech rejects wrong role" name="core/auth/device/speech rejects wrong role" time="0.003">
+    </testcase>
+    <testcase classname="core/auth/device/speech wechat login" name="core/auth/device/speech wechat login" time="0.011">
+    </testcase>
+    <testcase classname="core/auth/device/speech rejects extra fields" name="core/auth/device/speech rejects extra fields" time="0.006">
+    </testcase>
+    <testcase classname="core/auth/device/speech get/update me" name="core/auth/device/speech get/update me" time="0.009">
+    </testcase>
+    <testcase classname="core/auth/device/speech bind phone validation" name="core/auth/device/speech bind phone validation" time="0.01">
+    </testcase>
+    <testcase classname="core/auth/device/speech address lifecycle" name="core/auth/device/speech address lifecycle" time="0.012">
+    </testcase>
+    <testcase classname="core/auth/device/speech device list/status" name="core/auth/device/speech device list/status" time="0.007">
+    </testcase>
+    <testcase classname="core/auth/device/speech bind ticket" name="core/auth/device/speech bind ticket" time="0.005">
+    </testcase>
+    <testcase classname="core/auth/device/speech update device and command" name="core/auth/device/speech update device and command" time="0.011">
+    </testcase>
+    <testcase classname="core/auth/device/speech speech capabilities" name="core/auth/device/speech speech capabilities" time="0.004">
+    </testcase>
+    <testcase classname="core/auth/device/speech speech profile optimistic lock" name="core/auth/device/speech speech profile optimistic lock" time="0.013">
+    </testcase>
+    <testcase classname="core/auth/device/speech cannot disable automatic dialect" name="core/auth/device/speech cannot disable automatic dialect" time="0.008">
+    </testcase>
+    <testcase classname="core/auth/device/speech wake status" name="core/auth/device/speech wake status" time="0.004">
+    </testcase>
+    <testcase classname="core/auth/device/speech session device binding" name="core/auth/device/speech session device binding" time="0.008">
+    </testcase>
+    <testcase classname="core/auth/device/speech dialect high/mid/low routing" name="core/auth/device/speech dialect high/mid/low routing" time="0.015">
+    </testcase>
+    <testcase classname="core/auth/device/speech tts clone and wu degradation" name="core/auth/device/speech tts clone and wu degradation" time="0.008">
+    </testcase>
+    <testcase classname="core/auth/device/speech tts blocks unbound voice and model" name="core/auth/device/speech tts blocks unbound voice and model" time="0.018">
+    </testcase>
+    <testcase classname="core/auth/device/speech dialog and turns" name="core/auth/device/speech dialog and turns" time="0.008">
+    </testcase>
+    <testcase classname="core/auth/device/speech admin wake package mfa and idempotency" name="core/auth/device/speech admin wake package mfa and idempotency" time="0.015">
+    </testcase>
+  </testsuite>
+  <testsuite name="business domains" errors="0" failures="0" skipped="0" timestamp="2026-07-17T20:08:40" time="0.942" tests="16">
+    <testcase classname="business domains reminder CRUD and confirmation" name="business domains reminder CRUD and confirmation" time="0.046">
+    </testcase>
+    <testcase classname="business domains relationship invitation flow" name="business domains relationship invitation flow" time="0.014">
+    </testcase>
+    <testcase classname="business domains message and read receipt" name="business domains message and read receipt" time="0.01">
+    </testcase>
+    <testcase classname="business domains kids content catalogue" name="business domains kids content catalogue" time="0.006">
+    </testcase>
+    <testcase classname="business domains custom QA lifecycle" name="business domains custom QA lifecycle" time="0.015">
+    </testcase>
+    <testcase classname="business domains custom content upload and audit queue" name="business domains custom content upload and audit queue" time="0.011">
+    </testcase>
+    <testcase classname="business domains parent control and sleep mode" name="business domains parent control and sleep mode" time="0.011">
+    </testcase>
+    <testcase classname="business domains personas and voice clone" name="business domains personas and voice clone" time="0.015">
+    </testcase>
+    <testcase classname="business domains task rewards" name="business domains task rewards" time="0.012">
+    </testcase>
+    <testcase classname="business domains subscriptions order and payment" name="business domains subscriptions order and payment" time="0.011">
+    </testcase>
+    <testcase classname="business domains shop order" name="business domains shop order" time="0.011">
+    </testcase>
+    <testcase classname="business domains mood report" name="business domains mood report" time="0.003">
+    </testcase>
+    <testcase classname="business domains admin dashboard and lists" name="business domains admin dashboard and lists" time="0.009">
+    </testcase>
+    <testcase classname="business domains admin content CRUD" name="business domains admin content CRUD" time="0.02">
+    </testcase>
+    <testcase classname="business domains admin OTA and device check" name="business domains admin OTA and device check" time="0.008">
+    </testcase>
+    <testcase classname="business domains admin metrics logs events" name="business domains admin metrics logs events" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="infrastructure" errors="0" failures="0" skipped="0" timestamp="2026-07-17T20:08:41" time="0.433" tests="4">
+    <testcase classname="infrastructure config validates defaults" name="infrastructure config validates defaults" time="0.001">
+    </testcase>
+    <testcase classname="infrastructure memory store CRUD" name="infrastructure memory store CRUD" time="0.001">
+    </testcase>
+    <testcase classname="infrastructure mock ASR/TTS/chat/audit" name="infrastructure mock ASR/TTS/chat/audit" time="0.001">
+    </testcase>
+    <testcase classname="infrastructure memory events retain payload" name="infrastructure memory events retain payload" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>

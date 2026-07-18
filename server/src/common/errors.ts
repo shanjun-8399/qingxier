@@ -1,0 +1,3 @@
+import { HttpException } from '@nestjs/common';
+export class DomainError extends HttpException{constructor(status:number,readonly code:number,readonly error:string,message:string,readonly data?:unknown){super(message,status)}}
+export const invalid=(m='请求参数错误',d?:unknown)=>new DomainError(400,400001,'INVALID_ARGUMENT',m,d);export const unauthorized=(m='未登录或凭据无效')=>new DomainError(401,401001,'UNAUTHORIZED',m);export const forbidden=(m='没有权限访问该资源')=>new DomainError(403,403001,'FORBIDDEN',m);export const notFound=(m='资源不存在')=>new DomainError(404,404001,'NOT_FOUND',m);export const conflict=(m='资源状态冲突',d?:unknown)=>new DomainError(409,409001,'CONFLICT',m,d);export const limited=(m='已达到套餐容量限制')=>new DomainError(403,700001,'SUBSCRIPTION_LIMIT',m);

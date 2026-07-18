@@ -1,0 +1,1 @@
+<view class="page"><app-card wx:if="{{d}}" u-s="{{['d']}}" u-i="70828da6-0" bind:__l="__l" u-p="{{d}}"><view class="grid"><view wx:for="{{a}}" wx:for-item="v" wx:key="c"><view class="metric">{{v.a}}%</view><view class="muted">{{v.b}}</view></view></view><view class="list-item">高频词：{{b}}</view><view>{{c}}</view></app-card></view>

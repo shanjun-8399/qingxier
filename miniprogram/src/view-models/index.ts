@@ -1,0 +1,7 @@
+import type { DialectCode } from '@qingxier/contracts';
+export const dialectLabels:Record<DialectCode,string>={mandarin:'普通话',minnan:'闽南语',wu:'吴语',cantonese:'粤语',sichuanese:'四川话',shaanxi:'陕西话',henan:'河南话',shanghainese:'上海话'};
+export function deviceSummary(status:any){return{onlineText:status?.online?'在线':'离线',batteryText:`${status?.batteryPercent??0}%`,modeText:status?.currentMode==='child'?'幼儿版':'成人版',personaText:{mom:'妈妈',dad:'爸爸',lover:'恋人',teacher:'老师',bestie:'闺蜜'}[status?.currentPersona as string]??'未设置'};}
+export function validateReminder(form:any){const errors:string[]=[];if(!form.title?.trim())errors.push('请输入标题');if(!/^([01]\d|2[0-3]):[0-5]\d$/.test(form.timeOfDay??''))errors.push('请选择有效时间');if(!form.content?.trim())errors.push('请输入提醒内容');return errors;}
+export function speechNotice(result:{confidence:number;source:string;dialect:DialectCode;degraded?:boolean;fallbackReason?:string}){if(result.degraded)return result.fallbackReason??'当前语音已自动降级';if(result.source==='fallback')return`识别置信度较低，已自动使用${dialectLabels[result.dialect]}`;return`已自动识别为${dialectLabels[result.dialect]}`;}
+export function subscriptionUsage(plan:any,usage:any){const limits=plan?.limits??{};return Object.keys(limits).map(key=>({key,used:Number(usage?.[key]??0),limit:Number(limits[key]),percent:limits[key]?Math.min(100,Math.round((usage?.[key]??0)/limits[key]*100)):0}));}
+export function unreadCount(messages:any[]){return messages.filter(x=>x.deliveryStatus!=='read').length;}

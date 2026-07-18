@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/home/index",
+    "pages/device-bind/index",
+    "pages/speech-settings/index",
+    "pages/reminders/index",
+    "pages/relations/index",
+    "pages/messages/index",
+    "pages/tasks/index",
+    "pages/profile/index",
+    "pages/parent-control/index",
+    "pages/custom-content/index",
+    "pages/voice-clone/index",
+    "pages/subscription/index",
+    "pages/shop/index",
+    "pages/orders/index",
+    "pages/mood-report/index",
+    "pages/kids-content/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f7fa"
+  },
+  "tabBar": {
+    "color": "#667085",
+    "selectedColor": "#1f6feb",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/reminders/index",
+        "text": "提醒"
+      },
+      {
+        "pagePath": "pages/relations/index",
+        "text": "亲友"
+      },
+      {
+        "pagePath": "pages/tasks/index",
+        "text": "任务"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.bluetooth": {
+      "desc": "用于连接庆喜儿设备并完成 Wi-Fi 配网"
+    },
+    "scope.record": {
+      "desc": "用于发送语音留言和录制克隆音色样本"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "usingComponents": {}
+}

@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/infrastructure/integrations.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/infrastructure</a> integrations.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">84.61% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>33/39</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">66.66% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>12/18</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">65% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>13/20</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import mqtt,{type MqttClient}from'mqtt';import type{DialectCode}from'@qingxier/contracts';import{AppConfig}from'@/config/app-config';
+export interface EventBus{publish(t:string,p:Record&lt;string,unknown&gt;):Promise&lt;void&gt;;events():Array&lt;{topic:string,payload:Record&lt;string,unknown&gt;}&gt;;close():Promise&lt;void&gt;}export const EVENT_BUS=Symbol('EVENT_BUS');export class MemoryEventBus implements EventBus{private l:Array&lt;{topic:string,payload:Record&lt;string,unknown&gt;}&gt;=[];async publish(topic:string,payload:Record&lt;string,unknown&gt;){this.l.push({topic,payload:structuredClone(payload)})}events(){return structuredClone(this.l)}<span class="fstat-no" title="function not covered" >async </span>close(){}}export class MqttEventBus implements EventBus{private c:MqttClient;<span class="fstat-no" title="function not covered" >constructor(u</span>:string){<span class="cstat-no" title="statement not covered" >this.c=mqtt.connect(u)}<span class="fstat-no" title="function not covered" >a</span>sync </span>publish(t:string,p:Record&lt;string,unknown&gt;){<span class="cstat-no" title="statement not covered" >await new Promise&lt;void&gt;(<span class="fstat-no" title="function not covered" >(r</span>,j)=&gt;<span class="cstat-no" title="statement not covered" >this.c.publish(t,JSON.stringify(p),{qos:1},<span class="fstat-no" title="function not covered" >e=</span>&gt;<span class="cstat-no" title="statement not covered" >e?j(e):r())</span>)</span>}<span class="fstat-no" title="function not covered" >e</span>vents(</span>){<span class="cstat-no" title="statement not covered" >return[]}<span class="fstat-no" title="function not covered" >a</span>sync </span>close(){<span class="cstat-no" title="statement not covered" >await this.c.endAsync()}}</span>export const eventBusProvider={provide:EVENT_BUS,inject:[AppConfig],useFactory:(c:AppConfig):EventBus=&gt;c.eventBackend==='mqtt'?<span class="branch-0 cbranch-no" title="branch not covered" >new MqttEventBus(c.mqttUrl):</span>new MemoryEventBus()};
+export interface AiProviders{recognize(a:string):Promise&lt;{text:string,dialectCandidate:DialectCode,confidence:number}&gt;;synthesize(i:{text:string,dialect:DialectCode,voiceId?:string|null,model:string}):Promise&lt;{audioUrl:string,durationMs:number}&gt;;chat(i:{text:string,persona:string,mode:string,memories:string[]}):Promise&lt;string&gt;;audit(i:{type:string,content:string}):Promise&lt;{status:'approved'|'rejected',labels:string[]}&gt;}export const AI_PROVIDERS=Symbol('AI_PROVIDERS');export class MockAiProviders implements AiProviders{async recognize(_a:string){return{text:'你好阿西',dialectCandidate:'mandarin' as const,confidence:.93}}async synthesize(i:any){return{audioUrl:`https://cdn.example.com/tts/${encodeURIComponent(i.model)}-${encodeURIComponent(i.dialect)}.mp3`,durationMs:Math.max(500,i.text.length*180)}}async chat(i:any){return`${i.persona}：我听见了，“${i.text}”。我会陪着你。`}async audit(i:any){const x=/暴力|色情|自杀/.test(i.content);return{status:x?'rejected' as const:'approved' as const,labels:x?['unsafe']:[]}}}export class DashScopeProviders implements AiProviders{constructor(private c:AppConfig){}async recognize(_a:string):Promise&lt;{text:string,dialectCandidate:DialectCode,confidence:number}&gt;{throw new Error('DASHSCOPE_STREAMING_ASR_REQUIRES_WS')}async synthesize(i:any){const r=await fetch(`${this.c.dashscopeBaseUrl}/api/v1/services/audio/tts/SpeechSynthesizer`,{method:'POST',headers:{Authorization:`Bearer ${this.c.dashscopeApiKey}`,'Content-Type':'application/json'},body:JSON.stringify({model:i.model,input:{text:i.text,voice:i.voiceId,instruction:`请使用${i.dialect}自然表达`}})});if(!r.ok)throw new Error(`DASHSCOPE_TTS_${r.status}`);const b=await r.json()as any;return{audioUrl:b.output?.audio?.url??<span class="branch-1 cbranch-no" title="branch not covered" >b.output?.audio_url,</span>durationMs:b.usage?.duration??<span class="branch-1 cbranch-no" title="branch not covered" >0}</span>}async chat(i:any){const r=await fetch(`${this.c.llmBaseUrl.replace(/\/$/,'')}/v1/chat/completions`,{method:'POST',headers:{Authorization:`Bearer ${this.c.llmApiKey}`,'Content-Type':'application/json'},body:JSON.stringify({model:this.c.llmModel,messages:[{role:'system',content:`你是庆喜儿${i.persona}人格，模式${i.mode}`},{role:'user',content:i.text}]})});if(!r.ok)throw new Error(`LLM_${r.status}`);const b=await r.json()as any;return b.choices?.[0]?.message?.content??'我在听。'}async audit(_i:any){return{status:'approved' as const,labels:[]}}}export const aiProvider={provide:AI_PROVIDERS,inject:[AppConfig],useFactory:(c:AppConfig):AiProviders=&gt;c.providerMode==='dashscope'?<span class="branch-0 cbranch-no" title="branch not covered" >new DashScopeProviders(c):</span>new MockAiProviders()};
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-17T20:08:41.980Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

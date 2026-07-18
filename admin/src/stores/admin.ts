@@ -1,0 +1,2 @@
+import{defineStore}from'pinia';import{adminApi}from'@/services/admin-api';import{adminSession}from'@/services/http';
+export const useAdminStore=defineStore('admin',{state:()=>({authenticated:Boolean(adminSession.token()),dashboard:null as any,loading:false,lastTraceId:''}),actions:{login(token:string,mfa=true){adminSession.save(token,mfa);this.authenticated=true},logout(){adminSession.clear();this.authenticated=false},async loadDashboard(){this.loading=true;try{this.dashboard=await adminApi.dashboard()}finally{this.loading=false}}}});

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("./common/vendor.js"),t=require("./stores/auth.js");Math;const o=e.defineComponent({__name:"App",setup:o=>(e.onLaunch(()=>{t.useAuthStore().restore()}),()=>{})});function r(){const t=e.createSSRApp(o);return t.use(e.createPinia()),{app:t}}r().app.mount("#app"),exports.createApp=r;

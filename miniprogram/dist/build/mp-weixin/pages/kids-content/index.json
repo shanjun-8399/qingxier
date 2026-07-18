@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "幼儿内容",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}

@@ -1,0 +1,2 @@
+import{d as n,c as t,e as s,t as o,q as c,s as r,o as a}from"./index-BfAOzy0z.js";const d={class:"toolbar"},l={class:"page-title"},m={key:0,class:"muted"},u=n({__name:"PageHeader",props:{title:{},description:{}},setup(e){return(i,p)=>(a(),t("div",d,[s("div",null,[s("h1",l,o(e.title),1),e.description?(a(),t("div",m,o(e.description),1)):c("",!0)]),r(i.$slots,"default")]))}});export{u as _};
+//# sourceMappingURL=PageHeader.vue_vue_type_script_setup_true_lang-D_LxdQxb.js.map

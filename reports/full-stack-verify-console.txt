@@ -1,0 +1,5 @@
+
+> qingxier-platform@2.0.0 verify
+> bash scripts/verify.sh
+
+[contracts] typecheck/build

@@ -1,0 +1,20 @@
+# 合并 V2.0 快照时删除以下旧 Python/参考文件
+server/pyproject.toml
+server/requirements.txt
+server/requirements-dev.txt
+server/qingxier_server/
+server/scripts/generate_test_summary.py
+server/scripts/smoke_test.py
+server/tests/
+tests/
+.github/workflows/contract-tests.yml
+.github/workflows/server-tests.yml
+reports/junit.xml
+reports/test-results.json
+reports/test-run-console.txt
+reports/server-junit.xml
+reports/server-smoke-console.txt
+reports/server-test-console.txt
+reports/server-test-summary.json
+reports/server-uvicorn-console.txt
+reports/服务器代码实施测试报告_V1.2.md

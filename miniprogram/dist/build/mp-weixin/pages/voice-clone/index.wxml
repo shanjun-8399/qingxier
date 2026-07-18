@@ -1,0 +1,1 @@
+<view class="page"><app-card wx:if="{{c}}" u-s="{{['d']}}" u-i="680be765-0" bind:__l="__l" u-p="{{c}}"><view class="subtitle">录制20-30秒清晰语音，需本人授权。</view><view wx:for="{{a}}" wx:for-item="x" wx:key="c" class="list-item">{{x.a}} · {{x.b}}</view><button class="btn" bindtap="{{b}}">创建测试克隆任务</button></app-card></view>

@@ -1,0 +1,35 @@
+{
+  "name": "@qingxier/miniprogram",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "clean": "rm -rf dist coverage",
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:ci": "vitest run --coverage --reporter=default --reporter=junit --outputFile=../reports/miniprogram-junit.xml"
+  },
+  "dependencies": {
+    "@qingxier/contracts": "2.0.0",
+    "pinia": "2.1.7",
+    "vue": "3.4.21"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "3.4.32",
+    "@dcloudio/vite-plugin-uni": "3.0.0-4070620250821001",
+    "@types/node": "22.18.6",
+    "@vitest/coverage-v8": "2.1.9",
+    "@vue/test-utils": "2.4.6",
+    "jsdom": "25.0.1",
+    "typescript": "5.8.3",
+    "vite": "5.4.14",
+    "vitest": "2.1.9",
+    "vue-tsc": "2.2.8",
+    "@dcloudio/uni-app": "3.0.0-4070620250821001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-4070620250821001"
+  }
+}

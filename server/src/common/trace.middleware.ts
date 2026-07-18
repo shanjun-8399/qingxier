@@ -1,0 +1,2 @@
+import { Injectable,NestMiddleware } from '@nestjs/common';import type {NextFunction,Request,Response} from 'express';import {randomUUID} from 'node:crypto';
+@Injectable()export class TraceMiddleware implements NestMiddleware{use(req:Request&{traceId?:string},res:Response,next:NextFunction){const x=req.header('X-Request-Id')??'';req.traceId=/^[A-Za-z0-9_.:-]{1,128}$/.test(x)?x:`trc_${randomUUID().replaceAll('-','').slice(0,20)}`;res.setHeader('X-Trace-Id',req.traceId);next()}}

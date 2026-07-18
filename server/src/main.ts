@@ -1,0 +1,1 @@
+import 'reflect-metadata';import{createApplication}from'./bootstrap';import{AppConfig}from'./config/app-config';async function main(){const app=await createApplication();await app.listen(app.get(AppConfig).port,'0.0.0.0')}void main();

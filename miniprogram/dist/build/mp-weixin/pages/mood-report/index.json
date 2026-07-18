@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "心情周报",
+  "usingComponents": {
+    "app-card": "../../components/AppCard"
+  }
+}
